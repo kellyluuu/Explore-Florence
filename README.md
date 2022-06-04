@@ -23,6 +23,11 @@ List of stories users should experience when using your application.
 - Users can update their own review
 - User can delete their own review
 
+## List of libraries used
+- react
+- sass
+- react-router-dom
+
 ## Route Tables
 
 
