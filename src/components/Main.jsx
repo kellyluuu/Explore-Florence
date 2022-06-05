@@ -1,17 +1,18 @@
 import {useEffect, useState} from 'react'
 import {Routes, Route} from "react-router-dom"
 import Index from '../pages/Index'
-import Edit from '../pages/Edit'
+import ActivityShow from '../pages/ActivityShow'
+import Splash from '../pages/Splash'
 
 
 
 // import Activity from '../pages/Activity'
 export default function Main(props) {
     const [activity, setActivity] = useState(null)
-    const URL_act = "https://fs-mern-mobile.herokuapp.com/menu/"
+    const URL_act = "PENDING"
 
     const[review, setReview] = useState(null)
-    const URL_rev = "https://fs-mern-mobile.herokuapp.com/menu/"
+    const URL_rev = "PENDING"
 
     /* ---------------------------- get activity data --------------------------- */
     const getActivity = async ()=>{
@@ -49,7 +50,7 @@ export default function Main(props) {
             },
             body: JSON.stringify(review),
         })
-        getActivity()
+        getReview()
     }
 
     /* ---------------------- delete review from database --------------------- */
@@ -60,21 +61,25 @@ export default function Main(props) {
         getReview()
     }
 
+    useEffect(()=> {getActivity()},[])
     useEffect(()=> {getReview()},[])
 
     return (
         <main>
             <Routes>
-                <Route path="/" element = {<Index
+                <Route path="/" element = {<Splash></Splash>}/>
+
+                <Route path="/activity" element = {<Index
                 activity={activity}
                 review={review} ></Index>}/>
 
 
-                <Route path= "/activity/:id" element = {<Edit
+                <Route path= "/activity/:id" element = {<ActivityShow
                 activity={activity}
+                review={review}
                 updateReview={updateReview}
                 deleteReview={deleteReview}
-                createReview={createReview}></Edit>}/>
+                createReview={createReview}></ActivityShow>}/>
                 
             </Routes>
         </main>
