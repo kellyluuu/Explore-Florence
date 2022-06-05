@@ -28,20 +28,10 @@ List of stories users should experience when using your application.
 - sass
 - react-router-dom
 
-## Route Tables
+## ERD
+![ERD](./doc/image.png)
 
 
-You should also include any additional notes on any special headers that may be used and so forth.
-
-| Endpoint | Method | Response | Other |
-| -------- | ------ | -------- | ----- |
-| /activity | GET | JSON of all items | |
-| /activity | POST | Create new item return JSON of new item | body must include data for new item |
-| /activity/:id | GET | JSON of item with matching id number | |
-| /activity/:id | PUT | update item with matching idea, return its JSON | body must include updated data |
-| /activity/:id | DELETE | delete the item with the matching id | |
-| /auth/signup | POST | creates new user account returns user JSON | new user info must be included in body 
-| /auth/login | POST | logs in user and returns user JSON with JWT token | username and password must be included in body |
 
 ## Component Architecture
 
