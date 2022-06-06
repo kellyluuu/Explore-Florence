@@ -9,10 +9,10 @@ import Splash from '../pages/Splash'
 // import Activity from '../pages/Activity'
 export default function Main(props) {
     const [activity, setActivity] = useState(null)
-    const URL_act = "PENDING"
+    const URL_act = "https://fs-mern-mobile.herokuapp.com/menu/"
 
     const[review, setReview] = useState(null)
-    const URL_rev = "PENDING"
+    const URL_rev = "https://fs-mern-mobile.herokuapp.com/menu/"
 
     /* ---------------------------- get activity data --------------------------- */
     const getActivity = async ()=>{
