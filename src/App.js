@@ -1,9 +1,7 @@
 import './App.css';
-import Nav from './components/Nav';
 import Main from './components/Main';
-
-
-
+import Nav from './components/Nav';
+//import Google from './Google';
 
 
 
@@ -12,6 +10,8 @@ function App() {
     <div className="App">
       <Nav />
       <Main />
+
+
     </div>
   );
 }

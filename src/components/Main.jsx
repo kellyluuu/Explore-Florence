@@ -1,20 +1,18 @@
-import {useEffect, useState} from 'react'
 import {Routes, Route} from "react-router-dom"
-import Index from '../pages/Index'
-import ActivityShow from '../pages/ActivityShow'
-import Splash from '../pages/Splash'
+import {useEffect, useState} from 'react'
+import Index from "../pages/Index"
+import Splash from "../pages/Splash"
+import Activity from "../pages/Activity"
 
 
-
-// import Activity from '../pages/Activity'
-export default function Main(props) {
+function Main() {
+    const URL_act = "https://project-travel-site.herokuapp.com/activity/"
     const [activity, setActivity] = useState(null)
-    const URL_act = "https://fs-mern-mobile.herokuapp.com/menu/"
 
-    const[review, setReview] = useState(null)
-    const URL_rev = "https://fs-mern-mobile.herokuapp.com/menu/"
+    const URL_rev = "https://project-travel-site.herokuapp.com/activity/"
+    const [review, setReview] = useState(null)
 
-    /* ---------------------------- get activity data --------------------------- */
+    /* ---------------------------- GET ACTIVIY DATA ---------------------------- */
     const getActivity = async ()=>{
         const res = await fetch (URL_act)
         const data = await res.json()
@@ -64,25 +62,27 @@ export default function Main(props) {
     useEffect(()=> {getActivity()},[])
     useEffect(()=> {getReview()},[])
 
-    return (
-        <main>
-            <Routes>
-                <Route path="/" element = {<Splash></Splash>}/>
 
-                <Route path="/activity" element = {<Index
-                activity={activity}
-                review={review} ></Index>}/>
+  return (
+    <main>
+        <Routes>
+            <Route path ="/" element = {<Splash></Splash>}/>
+
+            <Route path = "/activity" element = {<Index
+            activity={activity}></Index>}/>
+
+            <Route path ="/activity/:id" element = {<Activity
+            activity={activity}
+            review={review}
+            createReview ={createReview}
+            updateReview={updateReview}
+            deleteReview={deleteReview}
+            ></Activity>}/>
 
 
-                <Route path= "/activity/:id" element = {<ActivityShow
-                activity={activity}
-                review={review}
-                updateReview={updateReview}
-                deleteReview={deleteReview}
-                createReview={createReview}></ActivityShow>}/>
-                
-            </Routes>
-        </main>
-    )
-  
+        </Routes>
+    </main>
+  )
 }
+
+export default Main
