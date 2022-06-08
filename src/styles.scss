@@ -10,6 +10,16 @@ $orangeAccent: #AD4B33;
     margin: auto;
 }
 
+.topNav {
+    background-color: #AD4B33;
+    height: 35px;
+}
+
+.logo {
+    height: 35px;
+    margin-left: 10px;
+}
+
 .splash--container {
     display: grid;
     grid-template-areas: "image text";
@@ -21,7 +31,7 @@ $orangeAccent: #AD4B33;
 
 .splash--container > #splash--image {
     grid-area: image;
-    margin: 10px;
+    margin: 10px 10px 10px 0px;
     width: 100%;
 
 }
