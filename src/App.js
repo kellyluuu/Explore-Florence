@@ -1,4 +1,4 @@
-import './App.css';
+import './styles.scss';
 import Main from './components/Main';
 import Nav from './components/Nav';
 //import Google from './Google';
