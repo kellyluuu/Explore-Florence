@@ -28,13 +28,21 @@ function Activity(props) {
   //   navigate("/")
   // }
     return (
-      <div>
+      <div className="activity--grid">
+        <div className="activity--details">
           <h3>{activity.name}</h3>
-          <img src={activity.imgThumb} alt={activity.name}/>
+          <p>{activity.desc}</p>
+          <h5>${activity.price} <br /><br /> {activity.url}</h5>
+        </div>
+        <div className="activity--image">
+          <img src={activity.imgFull} alt={activity.name} />
+        </div>
+        <div className="activity--reviews">
 
+        </div>
       </div>
-    )
-  }
+    );
+}
 
 
 export default Activity
