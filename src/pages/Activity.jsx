@@ -46,7 +46,6 @@ function Activity(props) {
         <div className="activity--reviews">
           <h5>REVIEWS</h5>
           <ReviewCard />
-          <Google />
         </div>
       </div>
     );

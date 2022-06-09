@@ -220,7 +220,7 @@ h5 {
 .activity--image img {
     grid-area: image;
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
 
 }
 
@@ -301,7 +301,7 @@ h5 {
 
 .review--formContainer {
     border: 1pt solid;
-    border-color: $orangeAccent;
+    border-color: $yellowButton;
 }
 
 .review--starRating {
@@ -314,3 +314,20 @@ h5 {
     font-size: 12px;
     font-style: italic;
 }
+
+.review--input-box {
+    font-family: 'Montserrat', sans-serif;
+    color: $blueText;
+    font-style: italic;
+    width: 95%;
+    height: 100px;
+    border: 0;
+}
+
+.review--button {
+    display: flex;
+    justify-content: space-between;
+    margin: 3px;
+    height: 24px;
+}
+
