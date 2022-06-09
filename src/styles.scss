@@ -8,6 +8,7 @@ $orangeAccent: #AD4B33;
 .App {
     width: 90%;
     margin: auto;
+    font-family: 'Montserrat', sans-serif;
 }
 
 a {
@@ -121,4 +122,53 @@ button {
     font-family: 'Tiro Devanagari Marathi', serif;
     font-size: 1.65vw,;
     line-height: 1.75;
+}
+
+/*------------ INDEX PAGE -----------*/
+
+.index--grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+.index--itemBox {
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.index--image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.index--overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color:#AD4B33;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+}
+
+.index--itemBox:hover .index--overlay {
+    height: 100%;
+}
+
+.index--overlayText {
+    white-space: initial;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
 }

@@ -29,18 +29,18 @@ export default function Index(props) {
     
         return (
             <>
-            <h1>Activity</h1>
+            <h1>Things to do in Florence, Italy</h1>
             <div className="filter">
             <form onSubmit={handleSubmit}>
             <input type="text" name="search" onChange={handleChange} value={formState.search}/>
             </form>
         </div>
-      <div className="grid">
+      <div className="index--grid">
         {filterArr.map((activity)=>(
-          <div className="itemBox" key={activity._id} >
-          <Link to ={`/activity/${activity._id}`}>
-          <h3>{activity.name}</h3>
-          <img src={activity.imgThumb} alt={activity.name}></img>
+          <div className="index--itemBox" key={activity._id} >
+            <Link to ={`/activity/${activity._id}`}>
+            <div className="index--overlay"><p className="index--overlayText">{activity.name}</p></div>
+            <img src={activity.imgThumb} alt={activity.name} className="index--image"></img>
           </Link>
       </div>
     ))}
