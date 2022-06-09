@@ -37,7 +37,7 @@ function Activity(props) {
           <p>{activity.desc}</p>
           <h5>
             ${activity.price} <br />
-            <br /> <a href={activity.url}>{activity.url}</a>
+            <br /> <a href={activity.url}>More info</a>
           </h5>
         </div>
         <div className="activity--image">

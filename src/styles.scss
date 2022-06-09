@@ -28,6 +28,11 @@ button {
     font-weight: 600;
 }
 
+h5 {
+    margin-top: 0;
+    // margin-bottom: 0;
+}
+
 
 
 /*------------ NAVIGATION STYLES -----------*/
@@ -195,8 +200,7 @@ button {
 
 .activity--grid > .activity--details {
     grid-area: details;
-    padding-right: 20px;
-
+    padding: 0 20px 20px 20px;
 }
 
 .activity--details h3 {
@@ -222,5 +226,91 @@ button {
 
 .activity--grid > .activity--reviews {
     grid-area: reviews;
+    padding: 0 20px 20px 20px;
 }
 
+
+/*------------ STAR RATINGS -----------*/
+
+.rating {
+    display: inline-block;
+    position: relative;
+    height: 18px;
+    line-height: 18px;
+    font-size: 18px;
+    margin: 5px;
+}
+
+.rating label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    cursor: pointer;
+}
+
+.rating label:last-child {
+    position: static;
+}
+
+.rating label:nth-child(1) {
+    z-index: 5;
+}
+
+.rating label:nth-child(2) {
+    z-index: 4;
+}
+
+.rating label:nth-child(3) {
+    z-index: 3;
+}
+
+.rating label:nth-child(4) {
+    z-index: 2;
+}
+
+.rating label:nth-child(5) {
+    z-index: 1;
+}
+
+.rating label input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.rating label .icon {
+    float: left;
+    color: transparent;
+}
+
+.rating label:last-child .icon {
+    color: #cec5aa;
+}
+
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+    color: $yellowButton;
+}
+
+.rating label input:focus:not(:checked) ~ .icon:last-child {
+    color: #cec5aa;
+    text-shadow: 0 0 5 $orangeAccent;
+}
+
+.review--formContainer {
+    border: 1pt solid;
+    border-color: $orangeAccent;
+}
+
+.review--starRating {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.review--starRating > p {
+    font-size: 12px;
+    font-style: italic;
+}

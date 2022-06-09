@@ -4,10 +4,14 @@ import ReviewList from "./ReviewList";
 
 export default function ReviewCard() {
     return (
-        <div>
-            <ReviewForm />
-            <RatingSelect />
-            <ReviewList />
+      <div>
+        <div className="review--formContainer">
+          <div className="review--starRating">
+            <p>Your star rating</p> <RatingSelect />
+          </div>
+          <ReviewForm />
         </div>
-    )
+        <ReviewList />
+      </div>
+    );
 }
