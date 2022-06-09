@@ -17,7 +17,7 @@ a {
 }
 
 button {
-    background-color: #B5973F;
+    background-color: $yellowButton;
     color: white;
     display: inline-block;
     padding: 5px 10px;
@@ -27,6 +27,8 @@ button {
     font-size: 12px;
     font-weight: 600;
 }
+
+
 
 /*------------ NAVIGATION STYLES -----------*/
 

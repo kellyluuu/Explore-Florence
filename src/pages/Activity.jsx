@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import {useState} from "react"
 import Google from "../Google";
+import ReviewCard from '../components/ReviewCard';
 
 
 function Activity(props) {
@@ -43,6 +44,8 @@ function Activity(props) {
           <img src={activity.imgFull} alt={activity.name} />
         </div>
         <div className="activity--reviews">
+          <h5>REVIEWS</h5>
+          <ReviewCard />
           <Google />
         </div>
       </div>
