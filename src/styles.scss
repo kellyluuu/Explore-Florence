@@ -93,7 +93,7 @@ button {
     grid-template-columns: 50% 50%;
     max-width: 1200px;
     position: relative;
-    max-height: 500px;
+    // max-height: 500px;
 }
 
 .splash--container > #splash--image {
@@ -127,11 +127,11 @@ button {
 /*------------ INDEX PAGE -----------*/
 
 .index--grid {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
+  display: flex;
 }
 
 .index--itemBox {
+    margin: 10px;
     width: 200px;
     height: 200px;
     position: relative;
@@ -172,3 +172,30 @@ button {
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
 }
+
+/*------------ FILTER -----------*/
+
+
+
+/*------------ ACTIVITY PAGE -----------*/
+
+.activity--grid {
+    display: grid;
+    grid-template-areas: "details image"
+    "reviews image";
+    grid-template-columns: 50% 50%;
+    max-width: 1200px;
+}
+
+.activity--grid > #activity--details {
+    grid-area: details;
+}
+
+.activity--grid > #activity--image {
+    grid-area: image;
+}
+
+.activity--grid > #activity--reviews {
+    grid-area: reviews;
+}
+
