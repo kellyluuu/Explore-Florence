@@ -32,7 +32,7 @@ function Activity(props) {
         <div className="activity--details">
           <h3>{activity.name}</h3>
           <p>{activity.desc}</p>
-          <h5>{activity.price} <br /> {activity.url}</h5>
+          <h5>${activity.price} <br /><br /> {activity.url}</h5>
         </div>
         <div className="activity--image">
           <img src={activity.imgFull} alt={activity.name} />

@@ -189,10 +189,12 @@ button {
 
 .activity--grid > #activity--details {
     grid-area: details;
+    width: 50%;
 }
 
 .activity--grid > #activity--image {
     grid-area: image;
+    width: 100%;
 }
 
 .activity--grid > #activity--reviews {
