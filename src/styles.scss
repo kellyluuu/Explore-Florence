@@ -10,15 +10,67 @@ $orangeAccent: #AD4B33;
     margin: auto;
 }
 
+a {
+    text-decoration: none;
+}
+
+/*------------ NAVIGATION STYLES -----------*/
+
+#topNav--links {
+    display: none;
+    margin-right: 50px;
+
+}
+
 .topNav {
+    display: flex;
     background-color: #AD4B33;
-    height: 35px;
+    height: 5.5vh;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.topNav a {
+    float: left;
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    padding: 14px 16px;
+    display: block;
+}
+
+.topNav .icon {
+    background: #AD4B33;
+    color: white;
+    font-size: 24px;
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 50px;
+    border: none;
+    right: 0;
+    top: 0;
+}
+
+.topNav a:hover {
+    background-color: #ddd;
+    color: #6e2f1f;
+}
+
+.icon:hover {
+    background-color: #ddd;
+    color: #6e2f1f;
 }
 
 .logo {
     height: 35px;
     margin-left: 10px;
+    margin-right: auto;
 }
+
+/*------------ SPLASH PAGE -----------*/
 
 .splash--container {
     display: grid;
