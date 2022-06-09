@@ -1,5 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import {useState} from "react"
+import Google from "../Google";
+
 
 function Activity(props) {
   const {id} = useParams()
@@ -32,13 +34,16 @@ function Activity(props) {
         <div className="activity--details">
           <h3>{activity.name}</h3>
           <p>{activity.desc}</p>
-          <h5>${activity.price} <br /><br /> {activity.url}</h5>
+          <h5>
+            ${activity.price} <br />
+            <br /> <a href={activity.url}>{activity.url}</a>
+          </h5>
         </div>
         <div className="activity--image">
           <img src={activity.imgFull} alt={activity.name} />
         </div>
         <div className="activity--reviews">
-
+          <Google />
         </div>
       </div>
     );

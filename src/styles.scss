@@ -9,6 +9,7 @@ $orangeAccent: #AD4B33;
     width: 90%;
     margin: auto;
     font-family: 'Montserrat', sans-serif;
+    color: $blueText;
 }
 
 a {
@@ -181,23 +182,43 @@ button {
 
 .activity--grid {
     display: grid;
-    grid-template-areas: "details image"
-    "reviews image";
+    grid-template-areas: 
+        "details image"
+        "reviews image";
     grid-template-columns: 50% 50%;
     max-width: 1200px;
+    width: 100%;
+    margin-top: 10px;
 }
 
-.activity--grid > #activity--details {
+.activity--grid > .activity--details {
     grid-area: details;
-    width: 50%;
+    padding-right: 20px;
+
 }
 
-.activity--grid > #activity--image {
+.activity--details h3 {
+    font-family: 'Tiro Devanagari Marathi', serif;
+    font-weight: 300;    
+}
+
+.activity--details p {
+    font-size: 1.5vw;
+    line-height: 1.5;
+}
+
+.activity--image {
+    grid-area: image;
+}
+
+.activity--image img {
     grid-area: image;
     width: 100%;
+    object-fit: contain;
+
 }
 
-.activity--grid > #activity--reviews {
+.activity--grid > .activity--reviews {
     grid-area: reviews;
 }
 
