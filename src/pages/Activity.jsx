@@ -31,11 +31,15 @@ function Activity(props) {
       <div className="activity--grid">
         <div className="activity--details">
           <h3>{activity.name}</h3>
+          <p>{activity.desc}</p>
+          <h5>{activity.price} <br /> {activity.url}</h5>
         </div>
         <div className="activity--image">
-          <img src={activity.imgThumb} alt={activity.name} />
+          <img src={activity.imgFull} alt={activity.name} />
         </div>
-        <div className="activity--reviews"></div>
+        <div className="activity--reviews">
+
+        </div>
       </div>
     );
 }
