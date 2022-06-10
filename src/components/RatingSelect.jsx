@@ -10,7 +10,7 @@ export default function RatingSelect({ select }) {
   return (
     <div className="review--starRating">
         <p>Your rating</p>
-        <form className="rating">
+        <div className="rating">
             <label>
                 <input
                 type="radio"
@@ -76,7 +76,7 @@ export default function RatingSelect({ select }) {
                 <span className="icon">★</span>
                 <span className="icon">★</span>
             </label>
-        </form>
+        </div>
     </div>
   );
 } 

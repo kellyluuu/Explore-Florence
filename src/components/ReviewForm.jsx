@@ -8,7 +8,10 @@ export default function ReviewForm({ handleAdd }) {
   const [rating, setRating] = useState(4);
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState("");
-  const handleTextChange = (event) => {
+
+//   const [review, setReview] = useState(review); 
+
+  const handleChange = (event) => {
     if (text === "") {
       setBtnDisabled(true);
       setMessage(null);
@@ -21,24 +24,33 @@ export default function ReviewForm({ handleAdd }) {
     }
     setText(event.target.value);
   };
+
+//   const handleChange = (event) => {
+//     setReview((prevState) => ({
+//       ...prevState,
+//       [event.target.name]: event.target.value,
+//     }));
+//   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (text.trim().length > 3) {
-      const newFeedback = {
+    if (text.trim().length > 8) {
+        const newReview = {
         text,
-        rating,
-      };
-      handleAdd(newFeedback);
-      setText("");
+        rating
+        }
+        handleAdd(newReview);
+        setText("")
+        }
     }
-  };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <RatingSelect select={(rating) => setRating(rating)} />
         <div>
           <textarea
-            onChange={handleTextChange}
+            onChange={handleChange}
             type="text"
             placeholder="Write a review..."
             value={text}

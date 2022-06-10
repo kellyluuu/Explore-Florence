@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import {useState} from "react"
-import Google from "../Google";
 import ReviewCard from '../components/ReviewCard';
+import ReviewStats from '../components/ReviewStats';
 
 
 function Activity(props) {
@@ -34,6 +34,7 @@ function Activity(props) {
       <div className="activity--grid">
         <div className="activity--details">
           <h3>{activity.name}</h3>
+          {/* <ReviewStats /> */}
           <p>{activity.desc}</p>
           <h5>
             ${activity.price} <br />

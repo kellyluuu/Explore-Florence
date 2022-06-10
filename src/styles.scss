@@ -134,8 +134,14 @@ h5 {
 
 /*------------ INDEX PAGE -----------*/
 
+.index--title {
+    font-family: 'Tiro Devanagari Marathi', serif;
+    font-weight: 300;    
+}
+
 .index--grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
 .index--itemBox {
@@ -183,7 +189,11 @@ h5 {
 
 /*------------ FILTER -----------*/
 
-
+.index--filter {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
 
 /*------------ ACTIVITY PAGE -----------*/
 
@@ -205,11 +215,12 @@ h5 {
 
 .activity--details h3 {
     font-family: 'Tiro Devanagari Marathi', serif;
-    font-weight: 300;    
+    font-weight: 300;
+    font-size: 1.75vw;    
 }
 
 .activity--details p {
-    font-size: 1.5vw;
+    font-size: 1.25vw;
     line-height: 1.5;
 }
 
@@ -221,7 +232,6 @@ h5 {
     grid-area: image;
     width: 100%;
     object-fit: cover;
-
 }
 
 .activity--grid > .activity--reviews {

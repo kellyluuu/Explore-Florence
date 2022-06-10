@@ -29,9 +29,9 @@ export default function Index(props) {
     
         return (
             <>
-            <h1>Things to do in Florence, Italy</h1>
+            <h2 className="index--title">Things to do in Florence, Italy</h2>
             <div className="filter">
-            <form onSubmit={handleSubmit}>
+            <form className="index--filter" onSubmit={handleSubmit}>
             <input type="text" name="search" onChange={handleChange} value={formState.search}/>
             </form>
         </div>
