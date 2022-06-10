@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Nav() {
+export default function Nav(props) {
   function hamburgerMenu() {
     var x = document.getElementById("topNav--links");
     if (x.style.display === "block") {
@@ -23,12 +23,12 @@ export default function Nav() {
         </Link>
       </div>
       <div id="topNav--links">
-        <Link to="">EAT</Link>
-        <Link to="">DRINK</Link>
-        <Link to="">TOUR</Link>
-        <Link to="">PLAY</Link>
-        <Link to="">SHOP</Link>
-        <Link to="">RELAX</Link>
+      <Link to="/activity" onClick={props.getFilter} name="eat" >EAT</Link>
+        <Link to="/activity" onClick={props.getFilter} name="drink">DRINK</Link>
+        <Link to="/activity" onClick={props.getFilter} name="tour">TOUR</Link>
+        <Link to="/activity" onClick={props.getFilter} name="play">PLAY</Link>
+        <Link to="/activity" onClick={props.getFilter} name="shop">SHOP</Link>
+        <Link to="/activity" onClick={props.getFilter} name="relax">RELAX</Link>
       </div>
       <button className="icon" onClick={hamburgerMenu}>
         <i className="fa fa-bars"></i>

@@ -1,42 +1,23 @@
 import { Link } from "react-router-dom"
-import {useState} from "react"
+
 
 
 export default function Index(props) {
     const Loaded = ()=>{
-        const [formState, setFormState] = useState ({search: "",})
-        const handleChange = (event)=>{
-            const newState = {...formState}
-            newState[event.target.name] = event.target.value
-            setFormState(newState)
-        }
-
         function filterCatagory (arr,query){
             return arr.filter(function(el){
                 if (query !== ""){
-                    return el.name.toLowerCase() === query 
+                    return el.type.toLowerCase().includes(query) 
                 }else{
-                    return el.name.toLowerCase() !== query
+                    return el.type.toLowerCase() !== query
                 }
             })
         }
-        const [filterArr, setFilterArr] = useState([...props.activity])
-        const handleSubmit = (event)=>{
-            event.preventDefault()
-            const newFilter = filterCatagory(props.activity, formState.search)
-            setFilterArr(newFilter)
-        }
-    
         return (
             <>
             <h2 className="index--title">Things to do in Florence, Italy</h2>
-            <div className="filter">
-            <form className="index--filter" onSubmit={handleSubmit}>
-            <input type="text" name="search" onChange={handleChange} value={formState.search}/>
-            </form>
-        </div>
       <div className="index--grid">
-        {filterArr.map((activity)=>(
+        {filterCatagory(props.activity, props.filter).map((activity)=>(
           <div className="index--itemBox" key={activity._id} >
             <Link to ={`/activity/${activity._id}`}>
             <div className="index--overlay"><p className="index--overlayText">{activity.name}</p></div>
