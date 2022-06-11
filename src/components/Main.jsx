@@ -8,9 +8,6 @@ import SampleData from "../data/sample"
 import { v4 as uuidv4 } from 'uuid';
 
 
-
-
-
 function Main() {
     const URL_act = "https://project-travel-site.herokuapp.com/activity/"
     const [activity, setActivity] = useState(null)
@@ -21,6 +18,12 @@ function Main() {
     /* ----------------------------- FILTER FUNCTION ---------------------------- */
     const [filter, setFilter]= useState("")
     const getFilter = (event)=>{
+        const newFilter = event.target.value
+        setFilter(newFilter)
+        console.log(filter)
+    }
+
+    const getLinkFilter = (event)=>{
         const newFilter = event.target.name
         setFilter(newFilter)
         console.log(filter)
@@ -93,12 +96,13 @@ function Main() {
 
   return (
     <main>
-        <Nav getFilter={getFilter}/>
+        <Nav getFilter={getLinkFilter}/>
         <Routes>
             <Route path ="/" element = {<Splash></Splash>}/>
 
             <Route path = "/activity" element = {<Index
             filter={filter}
+            getFilter={getFilter}
             activity={activity}></Index>}/>
 
             <Route path ="/activity/:id" element = {<Activity
