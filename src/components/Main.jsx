@@ -4,6 +4,7 @@ import Index from "../pages/Index"
 import Splash from "../pages/Splash"
 import Activity from "../pages/Activity"
 import Nav from "./Nav"
+import jwt_decode from "jwt-decode"
 
 
 function Main() {
@@ -77,6 +78,41 @@ function Main() {
         //getReview()
     }
     
+    /* ------------------------------ google login ------------------------------ */
+    const [ user, setUser] = useState({})
+
+
+    function handleCallbackResponse(response){
+      console.log("Encoded JWT ID token: " + response.credential)
+      let userObject = jwt_decode(response.credential)
+      console.log(userObject)
+      setUser(userObject)
+      document.getElementById('signInDiv').hidden = true
+      // document.getElementById('google--signedIn').hidden = true
+    }
+  
+    function handleSignOut(event){
+      setUser({})
+      document.getElementById("signInDiv").hidden = false
+      // document.getElementById("google--signedIn").hidden = false;
+    }
+  
+    // useEffect(()=>{
+    //   /* global google */
+    //   google.accounts.id.initialize({
+    //     client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+    //     callback: handleCallbackResponse
+    //   })
+  
+    //   google.accounts.id.renderButton(
+    //     document.getElementById("signInDiv"),
+    //     {theme: "outline", size: "small"}
+    //   )
+    //   google.accounts.id.prompt()
+    // },[])
+
+
+
 
     useEffect(()=> {getActivity()},[])
     useEffect(()=> {getReview()},[])
@@ -97,12 +133,13 @@ function Main() {
             <Route path ="/activity/:id" element = {<Activity
             activity={activity}
             review={review}
+            user={user}
+            handleCallbackResponse={handleCallbackResponse}
+            handleSignOut={handleSignOut}
             createReview ={createReview}
             updateReview={updateReview}
             deleteReview={deleteReview}
             ></Activity>}/>
-
-
         </Routes>
     </main>
   )
