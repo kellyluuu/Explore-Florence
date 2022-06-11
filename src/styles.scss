@@ -341,3 +341,23 @@ h5 {
     height: 24px;
 }
 
+/*------------ GOOGLE LOGIN -----------*/
+
+.google--signedIn {
+    display: flex;
+    height: 24px;
+    margin: 10px;
+}
+
+.google--picture {
+    width: 22px;
+    height: 22px;
+    margin: 0px 10px 10px 0px;
+    border: none;
+    border-color: white;
+    border-radius: 12px;
+}
+
+.google--name {
+    font-size: x-small;
+}
