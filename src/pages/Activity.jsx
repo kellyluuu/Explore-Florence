@@ -1,8 +1,8 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import {useState} from "react"
-import ReviewCard from '../components/ReviewCard';
-import ReviewStats from '../components/ReviewStats';
-
+import ReviewCard from '../components/Reviews/ReviewCard';
+import ReviewStats from '../components/Reviews/ReviewStats';
+import ReviewList from '../components/Reviews/ReviewList';
 
 function Activity(props) {
   const {id} = useParams()
@@ -47,6 +47,7 @@ function Activity(props) {
         <div className="activity--reviews">
           <h5>REVIEWS</h5>
           <ReviewCard />
+          <ReviewList />
         </div>
       </div>
     );

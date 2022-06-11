@@ -1,7 +1,7 @@
 import { useState } from "react";
 import RatingSelect from "./RatingSelect";
 import Button from "./Button";
-import Google from "../Google";
+import Google from "../../Google";
 
 export default function ReviewForm({ handleAdd }) {
   const [text, setText] = useState("");
