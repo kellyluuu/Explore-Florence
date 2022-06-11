@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function Nav(props) {
   function hamburgerMenu() {
-    var x = document.getElementById("topNav--links");
+    let x = document.getElementById("topNav--links");
     if (x.style.display === "block") {
       x.style.display = "none";
     } else {
@@ -23,7 +23,7 @@ export default function Nav(props) {
         </Link>
       </div>
       <div id="topNav--links">
-      <Link to="/activity" onClick={props.getFilter} name="eat" >EAT</Link>
+        <Link to="/activity" onClick={props.getFilter} name="eat" >EAT</Link>
         <Link to="/activity" onClick={props.getFilter} name="drink">DRINK</Link>
         <Link to="/activity" onClick={props.getFilter} name="tour">TOUR</Link>
         <Link to="/activity" onClick={props.getFilter} name="play">PLAY</Link>
