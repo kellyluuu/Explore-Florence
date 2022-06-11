@@ -4,13 +4,16 @@ import Index from "../pages/Index"
 import Splash from "../pages/Splash"
 import Activity from "../pages/Activity"
 import Nav from "./Nav"
+import SampleData from "../data/sample"
+import { v4 as uuidv4 } from 'uuid';
+
 
 function Main() {
     const URL_act = "https://project-travel-site.herokuapp.com/activity/"
     const [activity, setActivity] = useState(null)
 
     const URL_rev = "https://project-travel-site.herokuapp.com/activity/"
-    const [review, setReview] = useState(null)
+    const [review, setReview] = useState(SampleData)
 
     /* ----------------------------- FILTER FUNCTION ---------------------------- */
     const [filter, setFilter]= useState("")
@@ -28,23 +31,30 @@ function Main() {
     }
 
     /* ----------------------------- get review data ---------------------------- */
-    const getReview = async ()=>{
-        const res = await fetch (URL_rev)
-        const data = await res.json()
-        setReview(data)
-    }
+    // const getReview = async ()=>{
+    //     const res = await fetch (URL_rev)
+    //     const data = await res.json()
+    //     setReview(data)
+    // }
 
     /* ---------------------------- create new review --------------------------- */
-    const createReview = async (review)=>{
-        await fetch (URL_rev, {
-            method: "POST",
-            headers: {
-                "Content-Text": "Application/json",
-            },
-            body: JSON.stringify(review),
-        })
-        getReview()
-    }
+    // const createReview = async (review)=>{
+    //     await fetch (URL_rev, {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Text": "Application/json",
+    //         },
+    //         body: JSON.stringify(review),
+    //     })
+    //     getReview()
+    // }
+
+    //remove and update with above once backend review DB is up
+    const createReview = newReview => {
+        newReview.id = uuidv4();
+        setReview([newReview, ...review]);
+      };
+
 
     /* -------------------------- update review data -------------------------- */
 
@@ -56,19 +66,26 @@ function Main() {
             },
             body: JSON.stringify(review),
         })
-        getReview()
+        //getReview()
     }
 
     /* ---------------------- delete review from database --------------------- */
-    const deleteReview = async (id)=>{
-        await fetch (URL_rev + id, {
-            method: "DELETE",
-        })
-        getReview()
-    }
+    // const deleteReview = async (id)=>{
+    //     await fetch (URL_rev + id, {
+    //         method: "DELETE",
+    //     })
+    //     //getReview()
+    // }
+    
+    //remove and update with above once backend review DB is up
+    const deleteReview = id => {
+        if (window.confirm('Are you sure you want to delete?')) {
+          setReview(review.filter(item => item.id !== id));
+        }
+    };
 
     useEffect(()=> {getActivity()},[])
-    useEffect(()=> {getReview()},[])
+
 
 
   return (

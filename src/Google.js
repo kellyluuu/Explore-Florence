@@ -41,12 +41,12 @@ function Google() {
   return (
     <div className='App'>
       <div id="signInDiv" alt={user.name}></div>
-      { Object.keys(user).length !=0 &&
+      { Object.keys(user).length !==0 &&
       <button onClick={(e)=>handleSignOut(e)}>Sign Out</button>
       }
       { user &&
       <div>
-       <img src ={user.picture}></img>
+       <img src ={user.picture} alt="user-img"></img>
        <h3>{user.name}</h3>
        </div>
         }
