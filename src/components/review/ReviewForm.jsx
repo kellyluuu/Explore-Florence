@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom'
 // createReview is passed down from Main.JSX
 
 export default function ReviewForm({ createReview }) {
-  const id = useParams()
+  const {id} = useParams()
   const [text, setText] = useState("");
   const [rating, setRating] = useState(4);
   const [btnDisabled, setBtnDisabled] = useState(true);

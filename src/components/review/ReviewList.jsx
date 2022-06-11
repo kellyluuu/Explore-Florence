@@ -1,4 +1,5 @@
 import {useParams} from 'react-router-dom'
+import PropTypes from 'prop-types';
 
 export default function ReviewList(props) {
   const {id} = useParams()
@@ -9,7 +10,7 @@ export default function ReviewList(props) {
     })
   }
 
-  if (!props.review||props.review.length ===0){
+  if (!props.review||activityReview.length ===0){
     return <p>No reviews yet</p>
   }
   return (
@@ -27,3 +28,15 @@ export default function ReviewList(props) {
   </div>
   )
 }
+
+ReviewList.propTypes = {
+  review: PropTypes.arrayOf(
+  PropTypes.shape({
+  email: PropTypes.string,
+  id: PropTypes.string,
+  activityId: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired
+   })
+  )
+};
