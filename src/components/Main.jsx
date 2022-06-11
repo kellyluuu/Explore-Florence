@@ -5,6 +5,9 @@ import Splash from "../pages/Splash"
 import Activity from "../pages/Activity"
 import Nav from "./Nav"
 
+
+
+
 function Main() {
     const URL_act = "https://project-travel-site.herokuapp.com/activity/"
     const [activity, setActivity] = useState(null)
