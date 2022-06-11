@@ -3,7 +3,6 @@ import RatingSelect from "./RatingSelect";
 import Button from "./Button";
 import Google from "../../Google";
 import { useParams } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
 
 // createReview is passed down from Main.JSX
 
