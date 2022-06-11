@@ -1,14 +1,8 @@
 import { Link } from "react-router-dom"
-import { useState } from "react"
+
 
 export default function Index(props) {
     const Loaded = () => {
-        const [formState, setFormState] = useState('');
-
-        function handleSelect(event) {
-            setFormState(event.target.value)
-        }
-        
         function filterCategory (arr, query){
             return arr.filter(function(el){
                 if (query !== ""){
@@ -19,20 +13,12 @@ export default function Index(props) {
             })
         }
         
-        const [filterArr, setFilterArr] = useState([...props.activity])
-        
-        const handleSubmit = (event) => {
-            event.preventDefault()
-            // const newFilter = filterCategory(props.activity, formState)
-            setFilterArr(filterArr)
-        }
-
         return (
           <>
             <h2 className="index--title">New experiences await in Florence</h2>
             <div className="index--filter">
-              <form onSubmit={handleSubmit}>
-                <select className="index--selection" value={formState} onChange={handleSelect}>
+              <form >
+                <select className="index--selection" value={props.filter} onChange={props.getFilter}>
                   <option value="">ALL ACTIVITIES</option>
                   <option value="eat">EAT</option>
                   <option value="drink">DRINK</option>
@@ -41,7 +27,6 @@ export default function Index(props) {
                   <option value="shop">SHOP</option>
                   <option value="relax">RELAX</option>
                 </select>
-                <button type="submit">SEARCH</button>
               </form>
             </div>
             <div className="index--grid">
