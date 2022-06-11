@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom'
 export default function ReviewForm({ createReview }) {
   const {id} = useParams()
   const [text, setText] = useState("");
-  const [rating, setRating] = useState(4);
+  const [rating, setRating] = useState(0);
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState("");
   const [activityId, setActivityId] = useState(id)
@@ -67,7 +67,7 @@ export default function ReviewForm({ createReview }) {
           />
           <div className="review--button">
             <div>
-              <Google />
+              <Google isDisabled={btnDisabled} />
             </div>
             <div>
               <Button type="submit" isDisabled={btnDisabled}>

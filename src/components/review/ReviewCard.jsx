@@ -1,7 +1,7 @@
 import ReviewForm from "./ReviewForm";
 import ReviewList from "./ReviewList";
 
-export default function ReviewCard({review, createReview, updateReview, deleteReview}) {
+export default function ReviewCard({activityReview, createReview, updateReview, deleteReview}) {
     return (
       <div>
         <div className="review--formContainer">
@@ -9,7 +9,7 @@ export default function ReviewCard({review, createReview, updateReview, deleteRe
                       createReview ={createReview}
                       />
         </div>
-        <ReviewList review={review}
+        <ReviewList activityReview={activityReview}
         deleteReview={deleteReview}
         updateReview={updateReview}
         />

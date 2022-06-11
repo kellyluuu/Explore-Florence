@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom'
-//import {useState} from "react"
 import ReviewCard from '../components/review/ReviewCard';
 import ReviewStats from '../components/review/ReviewStats';
 
@@ -8,12 +7,19 @@ function Activity(props) {
   const {id} = useParams()
   const activities = props.activity
   const activity = activities.find((i)=> i._id ===id)
+  const activityReview = filterCatagory(props.review, id)
+  function filterCatagory (arr,query){
+    return arr.filter(function(el){
+        return el.activityId.toLowerCase().includes(query) 
+    })
+  }
+
     return (
       <div className="activity--grid">
         <div className="activity--details">
           <h3>{activity.name}</h3>
           <ReviewStats 
-          review={props.review}
+          activityReview={activityReview}
           />
           <p>{activity.desc}</p>
           <h5>
@@ -27,7 +33,7 @@ function Activity(props) {
         <div className="activity--reviews">
           <h5>REVIEWS</h5>
           <ReviewCard activity={activity}
-          review={props.review}
+          activityReview={activityReview}
           createReview={props.createReview}
           updateReview={props.updateReview}
           deleteReview={props.deleteReview}
