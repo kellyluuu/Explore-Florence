@@ -10,6 +10,7 @@ $orangeAccent: #AD4B33;
     margin: auto;
     font-family: 'Montserrat', sans-serif;
     color: $blueText;
+    max-width: 1200px;
 }
 
 a {
@@ -21,11 +22,17 @@ button {
     color: white;
     display: inline-block;
     padding: 5px 10px;
-    border: none;
+    border: 1px solid #B5973F;
     border-radius: 4px;
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
     font-weight: 600;
+}
+
+button:hover {
+    background-color: white;
+    border: 1px solid #B5973F;
+    color: $blueText
 }
 
 h5 {
@@ -195,6 +202,17 @@ h5 {
     margin-bottom: 20px;
 }
 
+.index--selection {
+    width: 200px;
+    height: 25px;
+    margin-right: 10px;
+    font-family: 'Montserrat', sans-serif;
+    color: $blueText;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid $yellowButton;
+}
+
 /*------------ ACTIVITY PAGE -----------*/
 
 .activity--grid {
@@ -220,7 +238,7 @@ h5 {
 }
 
 .activity--details p {
-    font-size: 1.25vw;
+    font-size: max(1.25vw, 12px);
     line-height: 1.5;
 }
 
@@ -312,6 +330,7 @@ h5 {
 .review--formContainer {
     border: 1pt solid;
     border-color: $yellowButton;
+    padding: 3px;
 }
 
 .review--starRating {
@@ -361,3 +380,4 @@ h5 {
 .google--name {
     font-size: x-small;
 }
+
