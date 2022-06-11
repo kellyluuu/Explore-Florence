@@ -4,8 +4,6 @@ import Index from "../pages/Index"
 import Splash from "../pages/Splash"
 import Activity from "../pages/Activity"
 import Nav from "./Nav"
-// import SampleData from "../data/sample"
-// import { v4 as uuidv4 } from 'uuid';
 
 
 function Main() {
@@ -55,11 +53,7 @@ function Main() {
         getReview()
     }
 
-    //remove and update with above once backend review DB is up
-    // const createReview = newReview => {
-    //     newReview.id = uuidv4();
-    //     setReview([newReview, ...review]);
-    //   };
+
 
 
     /* -------------------------- update review data -------------------------- */
@@ -83,12 +77,6 @@ function Main() {
         //getReview()
     }
     
-    //remove and update with above once backend review DB is up
-    // const deleteReview = id => {
-    //     if (window.confirm('Are you sure you want to delete?')) {
-    //       setReview(review.filter(item => item.id !== id));
-    //     }
-    // };
 
     useEffect(()=> {getActivity()},[])
     useEffect(()=> {getReview()},[])
