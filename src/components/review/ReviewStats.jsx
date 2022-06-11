@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+
 
 export default function ReviewStats({ review }) {
   // Calculate Ratings Average
@@ -14,6 +14,3 @@ export default function ReviewStats({ review }) {
     </div>
   );
 }
-ReviewStats.propTypes = {
-  review: PropTypes.array.isRequired,
-};

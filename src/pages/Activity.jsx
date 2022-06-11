@@ -1,40 +1,20 @@
-import { useParams, useNavigate } from 'react-router-dom'
-import {useState} from "react"
-import ReviewCard from '../components/Reviews/ReviewCard';
-import ReviewStats from '../components/Reviews/ReviewStats';
-import ReviewList from '../components/Reviews/ReviewList';
+import { useParams } from 'react-router-dom'
+//import {useState} from "react"
+import ReviewCard from '../components/review/ReviewCard';
+import ReviewStats from '../components/review/ReviewStats';
+
 
 function Activity(props) {
   const {id} = useParams()
   const activities = props.activity
   const activity = activities.find((i)=> i._id ===id)
-  let navigate = useNavigate()
-  
-
-  // const [editReview, setEditReview] = useState(post)
-  
-  // const handleChange = (event)=>{
-  //   setEditReview((prevState)=>({
-  //     ...prevState,
-  //     [event.target.name]: event.target.value
-  //   }))
-  // }
-  
-  // const handleSubmit = (event)=>{
-  //   event.preventDefault ()
-  //   props.updateReview(editReview, post._id)
-  //   navigate("/")
-  // }
-  
-  // const removeReview = ()=>{
-  //   props.deleteReview(post._id)
-  //   navigate("/")
-  // }
     return (
       <div className="activity--grid">
         <div className="activity--details">
           <h3>{activity.name}</h3>
-          {/* <ReviewStats /> */}
+          <ReviewStats 
+          review={props.review}
+          />
           <p>{activity.desc}</p>
           <h5>
             ${activity.price} <br />
@@ -46,8 +26,12 @@ function Activity(props) {
         </div>
         <div className="activity--reviews">
           <h5>REVIEWS</h5>
-          <ReviewCard />
-          <ReviewList />
+          <ReviewCard activity={activity}
+          review={props.review}
+          createReview={props.createReview}
+          updateReview={props.updateReview}
+          deleteReview={props.deleteReview}
+          />
         </div>
       </div>
     );
