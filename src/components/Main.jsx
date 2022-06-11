@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react'
 import Index from "../pages/Index"
 import Splash from "../pages/Splash"
 import Activity from "../pages/Activity"
-
+import Nav from "./Nav"
 
 function Main() {
     const URL_act = "https://project-travel-site.herokuapp.com/activity/"
@@ -11,6 +11,14 @@ function Main() {
 
     const URL_rev = "https://project-travel-site.herokuapp.com/activity/"
     const [review, setReview] = useState(null)
+
+    /* ----------------------------- FILTER FUNCTION ---------------------------- */
+    const [filter, setFilter]= useState("")
+    const getFilter = (event)=>{
+        const newFilter = event.target.name
+        setFilter(newFilter)
+        console.log(filter)
+    }
 
     /* ---------------------------- GET ACTIVIY DATA ---------------------------- */
     const getActivity = async ()=>{
@@ -65,10 +73,12 @@ function Main() {
 
   return (
     <main>
+        <Nav getFilter={getFilter}/>
         <Routes>
             <Route path ="/" element = {<Splash></Splash>}/>
 
             <Route path = "/activity" element = {<Index
+            filter={filter}
             activity={activity}></Index>}/>
 
             <Route path ="/activity/:id" element = {<Activity

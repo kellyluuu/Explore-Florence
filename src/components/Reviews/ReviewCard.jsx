@@ -7,7 +7,7 @@ export default function ReviewCard() {
         <div className="review--formContainer">
           <ReviewForm />
         </div>
-        <ReviewList />
+        <ReviewList className="review--list" />
       </div>
     );
 }
