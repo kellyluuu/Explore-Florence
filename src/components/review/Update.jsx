@@ -37,7 +37,6 @@ const getRating = (x)=>{
       setBtnDisabled(false);
     };
   }
-
   const handleSubmit =  (event)=>{
     event.preventDefault()
     updateReview(newForm, editReview._id)
