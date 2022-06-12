@@ -10,7 +10,7 @@ function Google(props) {
     let userObject = jwt_decode(response.credential)
     setUser(userObject)
     props.getUserInfo((userObject))
-    props.getEmail(user.email)
+    props.getEmail(userObject.email)
     document.getElementById('signInDiv').hidden = true
 
   }
@@ -36,21 +36,19 @@ function Google(props) {
 
   return (
     <div className='google'>
-      <div id="signInDiv" alt={user.name}></div>
+    <div id="signInDiv" ></div>
       { Object.keys(user).length !==0 &&
       <button onClick={(e)=>handleSignOut(e)}>
         Sign Out</button>
       }
       { Object.keys(user).length !==0 &&
-      <div className="google--signedIn">
-        <img src ={user.picture} alt={user} className="google--picture" id="google--pic"></img>
-        <h3 className="google--name">{user.name}</h3>
+      <div className="google--signedIn" >
+        <img src ={props.user.picture} alt={props.user} className="google--picture" id="google--pic"></img>
+        <h3 className="google--name">{props.user.name}</h3>
       </div>
         }
     </div>
   )
-
-
-    }
+}
     
 export default Google;

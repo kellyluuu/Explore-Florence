@@ -6,15 +6,15 @@ import { useParams } from 'react-router-dom'
 
 
 
-export default function ReviewForm({ getUserInfo, user, createReview }) {
+export default function ReviewForm({ editReview, getReview, getUserInfo, user, createReview }) {
   const {id} = useParams()
   const [rating, setRating] = useState(0);
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState("");
   const [newForm, setNewForm] = useState({
+    email: user.email,
     activityId: id,
     text: "",
-    email: user.email,
     rating: "",
   })
 
@@ -50,9 +50,9 @@ const getEmail = (x)=>{
     event.preventDefault()
     createReview(newForm)
     setNewForm({
+      email: user.email,
       activityId: id,
       text: "",
-      email: user.email,
       rating: "",
     })
   }
@@ -61,10 +61,11 @@ const getEmail = (x)=>{
 
   return (
     <div>
+      { editReview === "" &&
       <form onSubmit={handleSubmit}>
-
         <RatingSelect getRating={getRating} select={(rating) => setRating(rating)} />
         <div>
+
           <textarea
             onChange={handleChange} 
             type="text"
@@ -77,7 +78,7 @@ const getEmail = (x)=>{
           />
           <div className="review--button">
             <div>
-              <Google getEmail={getEmail} getUserInfo={getUserInfo} user={user} isDisabled={btnDisabled} />
+              <Google getEmail={getEmail} id={id} getReview={getReview} getUserInfo={getUserInfo} user={user} isDisabled={btnDisabled} />
             </div>
             <div>
             { Object.keys(user).length !==0 &&
@@ -90,6 +91,7 @@ const getEmail = (x)=>{
         </div>
         {message && <div className="message">{message}</div>}
       </form>
+    }
     </div>
   )
 }
