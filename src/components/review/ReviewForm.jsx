@@ -82,7 +82,7 @@ const getEmail = (x)=>{
             <div>
             { Object.keys(user).length !==0 &&
               <Button type="submit" isDisabled={btnDisabled}>
-                ADD REVIEW
+                Add Review
               </Button>
             }
             </div>

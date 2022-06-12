@@ -12,13 +12,20 @@ function Google(props) {
     props.getUserInfo((userObject))
     props.getEmail(user.email)
     document.getElementById('signInDiv').hidden = true
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8e17009 (Adds styling & stars to reviews)
   }
 
   function handleSignOut(){
     setUser({})
     props.getUserInfo({})
     document.getElementById("signInDiv").hidden = false
+<<<<<<< HEAD
+=======
+  }
+>>>>>>> 8e17009 (Adds styling & stars to reviews)
 
   }
       useEffect(()=>{
@@ -43,7 +50,11 @@ function Google(props) {
       }
       { Object.keys(user).length !==0 &&
       <div className="google--signedIn">
+<<<<<<< HEAD
         <img src ={user.picture} alt={user} className="google--picture" id="google--pic"></img>
+=======
+        {/* <img src ={user.picture} alt='profileimage' className="google--picture" id="google--pic"></img> */}
+>>>>>>> 8e17009 (Adds styling & stars to reviews)
         <h3 className="google--name">{user.name}</h3>
       </div>
         }
