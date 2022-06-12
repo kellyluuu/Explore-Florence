@@ -1,26 +1,36 @@
 import ReviewForm from "./ReviewForm";
 import ReviewList from "./ReviewList";
+import {useState} from 'react'
 
-export default function ReviewCard({user, handleCallbackResponse, handleSignOut, activityReview, createReview, updateReview, deleteReview}) {
-    return (
+export default function ReviewCard({user, getReview, getUserInfo, activityReview, createReview, updateReview, deleteReview}) {
+  const [editReview, setEditReview] = useState("")
+  const getEdit = (event)=>{
+    const reviews = activityReview
+    const review = reviews.find((i)=>i._id===event.target.name)
+    setEditReview(review)
+  }
+
+  return (
       <div>
         <div className="review--formContainer">
-{/* // dev-misc-cw
-//           <ReviewForm createReview={createReview} />
-//         </div>
-//         <div className="review--list">
-//           <ReviewList
-//             activityReview={activityReview}
-//             deleteReview={deleteReview}
-//             updateReview={updateReview}
-//           />
-// ======= */}
           <ReviewForm 
-                      createReview ={createReview}
-                      user={user}
-                      handleCallbackResponse={handleCallbackResponse}
-                      handleSignOut={handleSignOut}
+            createReview ={createReview}
+            editReview={editReview}
+            getReview={getReview}
+            user={user}
+            getUserInfo={getUserInfo}
                       />
+        </div>
+        <div className="review--list">
+          <ReviewList 
+            activityReview={activityReview}
+            editReview={editReview}
+            getEdit={getEdit}
+            setEditReview={setEditReview}
+            user={user}
+            deleteReview={deleteReview}
+            updateReview={updateReview}
+          />
         </div>
       </div>
     );

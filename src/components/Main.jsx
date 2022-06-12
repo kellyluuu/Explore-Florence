@@ -4,7 +4,7 @@ import Index from "../pages/Index"
 import Splash from "../pages/Splash"
 import Activity from "../pages/Activity"
 import Nav from "./Nav"
-import jwt_decode from "jwt-decode"
+
 
 
 function Main() {
@@ -19,13 +19,11 @@ function Main() {
     const getFilter = (event)=>{
         const newFilter = event.target.value
         setFilter(newFilter)
-        console.log(filter)
     }
 
     const getLinkFilter = (event)=>{
         const newFilter = event.target.name
         setFilter(newFilter)
-        console.log(filter)
     }
 
     /* ---------------------------- GET ACTIVIY DATA ---------------------------- */
@@ -72,51 +70,29 @@ function Main() {
 
     /* ---------------------- delete review from database --------------------- */
     const deleteReview = async (id)=>{
+        if (window.confirm('Are you sure you want to delete?'))
         await fetch (URL_rev + id, {
             method: "DELETE",
         })
-        //getReview()
+        getReview()
     }
     
     /* ------------------------------ google login ------------------------------ */
-    const [ user, setUser] = useState({})
-
-
-    function handleCallbackResponse(response){
-      console.log("Encoded JWT ID token: " + response.credential)
-      let userObject = jwt_decode(response.credential)
-      console.log(userObject)
-      setUser(userObject)
-      document.getElementById('signInDiv').hidden = true
-      // document.getElementById('google--signedIn').hidden = true
+    const [ userInfo, setUserInfo] = useState({})
+    const getUserInfo  = (x)=>{
+        const newUserInfo = x
+        setUserInfo(newUserInfo) 
+        
     }
-  
-    function handleSignOut(event){
-      setUser({})
-      document.getElementById("signInDiv").hidden = false
-      // document.getElementById("google--signedIn").hidden = false;
-    }
-  
-    // useEffect(()=>{
-    //   /* global google */
-    //   google.accounts.id.initialize({
-    //     client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
-    //     callback: handleCallbackResponse
-    //   })
-  
-    //   google.accounts.id.renderButton(
-    //     document.getElementById("signInDiv"),
-    //     {theme: "outline", size: "small"}
-    //   )
-    //   google.accounts.id.prompt()
-    // },[])
 
-
+    /* ---------------------------- update toggle div --------------------------- */
 
 
     useEffect(()=> {getActivity()},[])
     useEffect(()=> {getReview()},[])
 
+
+  
 
 
   return (
@@ -129,18 +105,17 @@ function Main() {
             filter={filter}
             getFilter={getFilter}
             activity={activity}></Index>}/>
-
             <Route path ="/activity/:id" element = {<Activity
             activity={activity}
             review={review}
-            user={user}
-            handleCallbackResponse={handleCallbackResponse}
-            handleSignOut={handleSignOut}
+            user={userInfo}
+            getUserInfo={getUserInfo}
             createReview ={createReview}
             updateReview={updateReview}
             deleteReview={deleteReview}
             ></Activity>}/>
         </Routes>
+ 
     </main>
   )
 }

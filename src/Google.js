@@ -1,47 +1,26 @@
-// <<<<<<< dev-misc-cw
-// import {useState, useEffect} from 'react'
-// import jwt_decode from "jwt-decode"
-
-
-// function Google() {
-//   const [ user, setUser] = useState({})
-
-
-//   function handleCallbackResponse(response){
-//     console.log("Encoded JWT ID token: " + response.credential)
-//     let userObject = jwt_decode(response.credential)
-//     console.log(userObject)
-//     setUser(userObject)
-//     document.getElementById('signInDiv').hidden = true
-//   }
-
-//   function handleSignOut(event){
-//     setUser({})
-//     document.getElementById("signInDiv").hidden = false
-//   }
-
-//   useEffect(()=>{
-//     /* global google */
-//     google.accounts.id.initialize({
-//       client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
-//       callback: handleCallbackResponse
-//     })
-
-//     google.accounts.id.renderButton(
-//       document.getElementById("signInDiv"),
-//       {theme: "outline", size: "small"}
-//     )
-//     google.accounts.id.prompt()
-//   },[])
-// IF NO USER SHOW SIGN IN BUTTON 
-// IF WE HAVE USER : SHOW THE LOG OUT BUTTON 
-
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
+import jwt_decode from "jwt-decode"
 
 
 
 function Google(props) {
-  const handleCallbackResponse = props.handleCallbackResponse
+  const [ user, setUser] = useState({})
+
+  function handleCallbackResponse(response){
+    let userObject = jwt_decode(response.credential)
+    setUser(userObject)
+    props.getUserInfo((userObject))
+    props.getEmail(user.email)
+    document.getElementById('signInDiv').hidden = true
+
+  }
+
+  function handleSignOut(){
+    setUser({})
+    props.getUserInfo({})
+    document.getElementById("signInDiv").hidden = false
+
+  }
       useEffect(()=>{
       /* global google */
       google.accounts.id.initialize({
@@ -53,27 +32,23 @@ function Google(props) {
         document.getElementById("signInDiv"),
         {theme: "outline", size: "small"}
       )
-      google.accounts.id.prompt()
     },[]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className='google'>
-      <div id="signInDiv" alt={props.user.name}></div>
-      { Object.keys(props.user).length !==0 &&
-      <button onClick={(e)=>props.handleSignOut(e)}>
+    <div id="signInDiv" ></div>
+      { Object.keys(user).length !==0 &&
+      <button onClick={(e)=>handleSignOut(e)}>
         Sign Out</button>
       }
-      { props.user &&
-      <div className="google--signedIn">
-        {/* <img src ={user.picture} alt='profileimage' className="google--picture" id="google--pic"></img> */}
-        <h3 className="google--name">{user.name}</h3>
-
+      { Object.keys(user).length !==0 &&
+      <div className="google--signedIn" >
+        <img src ={props.user.picture} alt={props.user} className="google--picture" id="google--pic"></img>
+        <h3 className="google--name">{props.user.name}</h3>
       </div>
         }
     </div>
   )
-
-
-    }
+}
     
 export default Google;
