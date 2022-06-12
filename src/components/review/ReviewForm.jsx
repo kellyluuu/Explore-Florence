@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom'
 
 // createReview is passed down from Main.JSX
 
-export default function ReviewForm({ createReview }) {
+export default function ReviewForm({ handleCallbackResponse, handleSignOut, user, createReview }) {
   const {id} = useParams()
   const [text, setText] = useState("");
   const [rating, setRating] = useState(0);
@@ -60,7 +60,7 @@ export default function ReviewForm({ createReview }) {
           />
           <div className="review--button">
             <div>
-              <Google isDisabled={btnDisabled} />
+              <Google handleCallbackResponse={handleCallbackResponse} handleSignOut={handleSignOut} user={user} isDisabled={btnDisabled} />
             </div>
             <div>
               <Button type="submit" isDisabled={btnDisabled}>
