@@ -10,7 +10,7 @@ function Activity(props) {
   const activityReview = filterActivity(props.review, id)
   function filterActivity (arr,query){
     return arr.filter(function(el){
-        return el.activityId.includes(query) 
+        return el.activityId.toLowerCase().includes(query) 
     })
   }
 
