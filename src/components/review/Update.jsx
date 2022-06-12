@@ -1,32 +1,24 @@
-import { useState } from "react";
+import Button from './Button'
+import { useNavigate } from 'react-router-dom';
+import {useState} from 'react'
 import RatingSelect from "./RatingSelect";
-import Button from "./Button";
-import Google from "../../Google";
-import { useParams } from 'react-router-dom'
 
-
-
-export default function ReviewForm({ getUserInfo, user, createReview }) {
-  const {id} = useParams()
-  const [rating, setRating] = useState(0);
-  const [btnDisabled, setBtnDisabled] = useState(true);
+export default function Update({deleteReview, updateReview, editReview, setReview}) {
+  let navigate = useNavigate()
+  const [rating, setRating] = useState(editReview.rating);
+  const [btnDisabled, setBtnDisabled] = useState(false);
   const [message, setMessage] = useState("");
   const [newForm, setNewForm] = useState({
-    activityId: id,
-    text: "",
-    email: user.email,
-    rating: "",
+    activityId: editReview.activityId,
+    text: editReview.text,
+    email: editReview.email,
+    rating: editReview.rating,
   })
 
 const getRating = (x)=>{
   setNewForm({...newForm, rating: x})
   console.log(rating)
 }
-
-const getEmail = (x)=>{
-  setNewForm({...newForm, email: x})
-}
-
 
 
   const handleChange = (event) => {
@@ -46,18 +38,12 @@ const getEmail = (x)=>{
     };
   }
 
-  const handleSubmit = (event)=>{
+  const handleSubmit =  (event)=>{
     event.preventDefault()
-    createReview(newForm)
-    setNewForm({
-      activityId: id,
-      text: "",
-      email: user.email,
-      rating: "",
-    })
-  }
-
-
+    updateReview(newForm, editReview._id)
+    navigate(`/activity/${editReview.activityId}`)
+    setReview("")
+    }
 
   return (
     <div>
@@ -76,15 +62,15 @@ const getEmail = (x)=>{
             cols="60"
           />
           <div className="review--button">
+        
             <div>
-              <Google getEmail={getEmail} getUserInfo={getUserInfo} user={user} isDisabled={btnDisabled} />
-            </div>
-            <div>
-            { Object.keys(user).length !==0 &&
+            
               <Button type="submit" isDisabled={btnDisabled}>
-                ADD REVIEW
+                UPDATE REVIEW
               </Button>
-            }
+              <button name={editReview._id} onClick={() => deleteReview(editReview._id)} className="close">
+              delete</button>
+          
             </div>
           </div>
         </div>

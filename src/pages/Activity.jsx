@@ -32,10 +32,9 @@ function Activity(props) {
         </div>
         <div className="activity--reviews">
           <h5>REVIEWS</h5>
-          <ReviewCard activity={activity}
-          handleCallbackResponse={props.handleCallbackResponse}
+          <ReviewCard 
           user={props.user}
-          handleSignOut={props.handleSignOut}
+          getUserInfo={props.getUserInfo}
           activityReview={activityReview}
           createReview={props.createReview}
           updateReview={props.updateReview}

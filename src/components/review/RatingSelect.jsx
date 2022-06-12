@@ -1,8 +1,9 @@
 import { useState } from "react"
 
-export default function RatingSelect({ select }) {
+export default function RatingSelect({ getRating, select }) {
   const [selected, setSelected] = useState(0);
   const handleChange = e => {
+      getRating(+e.currentTarget.value)
     setSelected(+e.currentTarget.value);
     select(+e.currentTarget.value);
   };
