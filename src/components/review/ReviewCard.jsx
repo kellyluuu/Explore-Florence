@@ -1,7 +1,7 @@
 import ReviewForm from "./ReviewForm";
 import ReviewList from "./ReviewList";
 
-export default function ReviewCard({user, handleCallbackResponse, handleSignOut, activityReview, createReview, updateReview, deleteReview}) {
+export default function ReviewCard({user, getUserInfo, activityReview, createReview, updateReview, deleteReview}) {
     return (
       <div>
         <div className="review--formContainer">
@@ -18,10 +18,17 @@ export default function ReviewCard({user, handleCallbackResponse, handleSignOut,
           <ReviewForm 
                       createReview ={createReview}
                       user={user}
-                      handleCallbackResponse={handleCallbackResponse}
-                      handleSignOut={handleSignOut}
+                      getUserInfo={getUserInfo}
                       />
         </div>
+<<<<<<< HEAD
+=======
+        <ReviewList activityReview={activityReview}
+        user={user}
+        deleteReview={deleteReview}
+        updateReview={updateReview}
+        />
+>>>>>>> integration
       </div>
     );
 }
