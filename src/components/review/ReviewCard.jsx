@@ -5,6 +5,16 @@ export default function ReviewCard({user, handleCallbackResponse, handleSignOut,
     return (
       <div>
         <div className="review--formContainer">
+// <<<<<<< dev-misc-cw
+//           <ReviewForm createReview={createReview} />
+//         </div>
+//         <div className="review--list">
+//           <ReviewList
+//             activityReview={activityReview}
+//             deleteReview={deleteReview}
+//             updateReview={updateReview}
+//           />
+// =======
           <ReviewForm 
                       createReview ={createReview}
                       user={user}
@@ -12,10 +22,6 @@ export default function ReviewCard({user, handleCallbackResponse, handleSignOut,
                       handleSignOut={handleSignOut}
                       />
         </div>
-        <ReviewList activityReview={activityReview}
-        deleteReview={deleteReview}
-        updateReview={updateReview}
-        />
       </div>
     );
 }

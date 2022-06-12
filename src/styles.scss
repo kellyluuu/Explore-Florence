@@ -40,7 +40,11 @@ h5 {
     // margin-bottom: 0;
 }
 
-
+.loading {
+    position: fixed;
+    top: 30%;
+    left: 40%;
+}
 
 /*------------ NAVIGATION STYLES -----------*/
 
@@ -141,6 +145,10 @@ h5 {
 
 /*------------ INDEX PAGE -----------*/
 
+.index--header {
+    display: flex;
+    justify-content: space-between;
+}
 .index--title {
     font-family: 'Tiro Devanagari Marathi', serif;
     font-weight: 300;    
@@ -199,13 +207,14 @@ h5 {
 .index--filter {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
 }
 
 .index--selection {
     width: 200px;
     height: 25px;
     margin-right: 10px;
+    margin-top: 20px;
     font-family: 'Montserrat', sans-serif;
     color: $blueText;
     font-size: 12px;
@@ -234,7 +243,7 @@ h5 {
 .activity--details h3 {
     font-family: 'Tiro Devanagari Marathi', serif;
     font-weight: 300;
-    font-size: 1.75vw;    
+    font-size: max(2vw, 12px);    
 }
 
 .activity--details p {
@@ -256,7 +265,6 @@ h5 {
     grid-area: reviews;
     padding: 0 20px 20px 20px;
 }
-
 
 /*------------ STAR RATINGS -----------*/
 
@@ -327,6 +335,8 @@ h5 {
     text-shadow: 0 0 5 $orangeAccent;
 }
 
+/*------------ USER REVIEWS -----------*/
+
 .review--formContainer {
     border: 1pt solid;
     border-color: $yellowButton;
@@ -335,7 +345,6 @@ h5 {
 
 .review--starRating {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
 }
 
@@ -358,6 +367,37 @@ h5 {
     justify-content: space-between;
     margin: 3px;
     height: 24px;
+}
+
+.review--list {
+    margin-top: 50px;
+}
+
+.review--single-review {
+    margin-bottom: 10px;
+    display: block;
+    background-color: $blueText;
+    color: white;
+    padding: 5px;
+    font-size: max(1.25vw, 12px);
+}
+
+.review--text {
+    padding: 5px;
+}
+
+.review--update, .review--delete {
+    margin-left: 5px;
+    text-align: right;
+}
+
+.feedback-stats {
+    font-size: max(1vw, 10px);
+    display: flex;
+}
+
+.feedback-stats > h4 {
+    margin: 3px;
 }
 
 /*------------ GOOGLE LOGIN -----------*/
