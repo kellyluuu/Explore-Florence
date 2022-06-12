@@ -30,13 +30,6 @@ export default function ReviewForm({ createReview }) {
     setText(event.target.value);
   };
 
-//   const handleChange = (event) => {
-//     setReview((prevState) => ({
-//       ...prevState,
-//       [event.target.name]: event.target.value,
-//     }));
-//   };
-
   const handleSubmit = (event) => {
     event.preventDefault()
     if (text.trim().length > 3) {
@@ -71,7 +64,7 @@ export default function ReviewForm({ createReview }) {
             </div>
             <div>
               <Button type="submit" isDisabled={btnDisabled}>
-                ADD REVIEW
+                Add Review
               </Button>
             </div>
           </div>

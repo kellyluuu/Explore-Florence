@@ -5,14 +5,15 @@ export default function ReviewCard({activityReview, createReview, updateReview, 
     return (
       <div>
         <div className="review--formContainer">
-          <ReviewForm 
-                      createReview ={createReview}
-                      />
+          <ReviewForm createReview={createReview} />
         </div>
-        <ReviewList activityReview={activityReview}
-        deleteReview={deleteReview}
-        updateReview={updateReview}
-        />
+        <div className="review--list">
+          <ReviewList
+            activityReview={activityReview}
+            deleteReview={deleteReview}
+            updateReview={updateReview}
+          />
+        </div>
       </div>
     );
 }

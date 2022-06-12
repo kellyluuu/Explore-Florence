@@ -9,7 +9,7 @@ export default function RatingSelect({ select }) {
 
   return (
     <div className="review--starRating">
-        <p>Your rating</p>
+        {/* <p>Your rating</p> */}
         <div className="rating">
             <label>
                 <input
@@ -56,10 +56,10 @@ export default function RatingSelect({ select }) {
                 onChange={handleChange}
                 checked={selected === 4}
                 />
-                    <span className="icon">★</span>
-                    <span className="icon">★</span>
-                    <span className="icon">★</span>
-                    <span className="icon">★</span>
+                <span className="icon">★</span>
+                <span className="icon">★</span>
+                <span className="icon">★</span>
+                <span className="icon">★</span>
             </label>
             <label>
                 <input

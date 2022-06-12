@@ -12,13 +12,11 @@ function Google() {
     console.log(userObject)
     setUser(userObject)
     document.getElementById('signInDiv').hidden = true
-    // document.getElementById('google--signedIn').hidden = true
   }
 
   function handleSignOut(event){
     setUser({})
     document.getElementById("signInDiv").hidden = false
-    // document.getElementById("google--signedIn").hidden = false;
   }
 
   useEffect(()=>{
@@ -46,7 +44,7 @@ function Google() {
       }
       { user &&
       <div className="google--signedIn">
-        <img src ={user.picture} alt='profileimage' className="google--picture" id="google--pic"></img>
+        {/* <img src ={user.picture} alt='profileimage' className="google--picture" id="google--pic"></img> */}
         <h3 className="google--name">{user.name}</h3>
       </div>
         }
