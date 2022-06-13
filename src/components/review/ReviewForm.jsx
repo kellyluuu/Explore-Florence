@@ -1,17 +1,16 @@
 import { useState } from "react";
 import RatingSelect from "./RatingSelect";
-import Button from "./Button";
 import Google from "../../Google";
 import { useParams } from 'react-router-dom'
 
 
 
-export default function ReviewForm({ editReview, getReview, getUserInfo, user, createReview }) {
+export default function ReviewForm({ editReview, getUserInfo, user, createReview }) {
   const {id} = useParams()
   const [rating, setRating] = useState(0);
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState("");
-  const [newForm, setNewForm] = useState({
+  const [form, setForm] = useState({
     email: user.email,
     activityId: id,
     text: "",
@@ -19,26 +18,26 @@ export default function ReviewForm({ editReview, getReview, getUserInfo, user, c
   })
 
 const getRating = (x)=>{
-  setNewForm({...newForm, rating: x})
+  setForm({...form, rating: x})
   console.log(rating)
 }
 
 const getEmail = (x)=>{
-  setNewForm({...newForm, email: x})
+  setForm({...form, email: x})
 }
 
 
 
   const handleChange = (event) => {
     getEmail(user.email)
-    setNewForm((prevState) => ({
+    setForm((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
     }))
-    if (newForm.text === "") {
+    if (form.text === "") {
       setBtnDisabled(true);
       setMessage(null);
-    } else if (newForm.text !== "" && newForm.text.trim().length < 3) {
+    } else if (form.text !== "" && form.text.trim().length < 3) {
       setMessage("Text must be at least 4 characters");
       setBtnDisabled(true);
     } else {
@@ -49,13 +48,13 @@ const getEmail = (x)=>{
 
   const handleSubmit = (event)=>{
     event.preventDefault()
-    createReview(newForm)
-    // setNewForm({
-    //   email: user.email,
-    //   activityId: id,
-    //   text: "",
-    //   rating: "",
-    // })
+    createReview(form)
+    setForm({
+      email: user.email,
+      activityId: id,
+      text: "",
+      rating: "",
+    })
   }
 
 
@@ -72,20 +71,20 @@ const getEmail = (x)=>{
             type="text"
             name="text"
             placeholder="Write a review..."
-            value={newForm.text}
+            value={form.text}
             className="review--input-box"
             rows="6"
             cols="60"
           />
           <div className="review--button">
             <div>
-              <Google getEmail={getEmail} id={id} getReview={getReview} getUserInfo={getUserInfo} user={user} isDisabled={btnDisabled} />
+              <Google getEmail={getEmail} id={id}  getUserInfo={getUserInfo} user={user} />
             </div>
             <div>
             { Object.keys(user).length !==0 &&
-              <Button type="submit" isDisabled={btnDisabled}>
+              <button disabled={btnDisabled} type="submit" >
                 Add Review
-              </Button>
+              </button>
             }
             </div>
           </div>

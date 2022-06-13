@@ -17,7 +17,7 @@ export default function ReviewList(props) {
         />
       )}
       {props.activityReview.map((review) => (
-        <div className="review--single-review">
+        <div key={review._id} className="review--single-review">
           <div key={review._id}>
             <span className="icon">★ {review.rating}</span>
             {props.user.email === review.email && (

@@ -10,7 +10,7 @@ function Activity(props) {
   const activityReview = filterActivity(props.review, id)
   function filterActivity(arr, query) {
     return arr.filter(function(el){
-        return el.activityId //.toLowerCase().includes(query) 
+        return el.activityId.toLowerCase().includes(query) 
     })
   }
 
@@ -34,7 +34,6 @@ function Activity(props) {
           <h5>REVIEWS</h5>
           <ReviewCard 
           user={props.user}
-          getReview={props.getReview}
           getUserInfo={props.getUserInfo}
           activityReview={activityReview}
           createReview={props.createReview}
