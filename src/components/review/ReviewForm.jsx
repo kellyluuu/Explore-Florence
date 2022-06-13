@@ -38,8 +38,8 @@ const getEmail = (x)=>{
     if (newForm.text === "") {
       setBtnDisabled(true);
       setMessage(null);
-    } else if (newForm.text !== "" && newForm.text.trim().length < 3) {
-      setMessage("Text must be at least 4 characters");
+    } else if (newForm.text !== "" && newForm.text.trim().length < 1) {
+      setMessage(null);
       setBtnDisabled(true);
     } else {
       setMessage(null);
