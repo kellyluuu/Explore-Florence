@@ -10,7 +10,7 @@ export default function RatingSelect({ getRating, select }) {
 
   return (
     <div className="review--starRating">
-        {/* <p>Your rating</p> */}
+        <p>Your rating</p>
         <div className="rating">
             <label>
                 <input

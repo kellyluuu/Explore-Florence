@@ -21,7 +21,7 @@ button {
     background-color: $yellowButton;
     color: white;
     display: inline-block;
-    padding: 5px 10px;
+    padding: 4px 10px;
     border: 1px solid #B5973F;
     border-radius: 4px;
     font-family: 'Montserrat', sans-serif;
@@ -243,7 +243,8 @@ h5 {
 .activity--details h3 {
     font-family: 'Tiro Devanagari Marathi', serif;
     font-weight: 300;
-    font-size: max(2vw, 12px);    
+    font-size: max(2.5vw, 12px);
+    margin-bottom: 3px;    
 }
 
 .activity--details p {
@@ -271,10 +272,10 @@ h5 {
 .rating {
     display: inline-block;
     position: relative;
-    height: 18px;
-    line-height: 18px;
-    font-size: 18px;
-    margin: 5px;
+    height: 17px;
+    line-height: 17px;
+    font-size: 17px;
+    margin: 6px;
 }
 
 .rating label {
@@ -330,10 +331,10 @@ h5 {
     color: $yellowButton;
 }
 
-.rating label input:focus:not(:checked) ~ .icon:last-child {
-    color: #cec5aa;
-    text-shadow: 0 0 5 $orangeAccent;
-}
+// .rating label input:focus:not(:checked) ~ .icon:last-child {
+    // color: #cec5aa;
+    // text-shadow: 0 0 5 $orangeAccent;
+// }
 
 /*------------ USER REVIEWS -----------*/
 
@@ -378,22 +379,39 @@ h5 {
     display: block;
     background-color: $blueText;
     color: white;
-    padding: 5px;
+    padding: 6px;
     font-size: max(1.25vw, 12px);
 }
 
 .review--text {
-    padding: 5px;
+    padding: 6px;
+    margin-bottom: 6px;
 }
 
 .review--update, .review--delete {
-    margin-left: 5px;
+    margin-left: 6px;
     text-align: right;
 }
 
 .feedback-stats {
     font-size: max(1vw, 10px);
     display: flex;
+}
+
+.review--update-div {
+    margin-bottom: 10px;
+}
+
+.review--rating-email {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 6px;
+    padding: 6px;
+    font-weight: 800;
+}
+
+.review--rating-email > div {
+    margin-bottom: 6px;
 }
 
 .feedback-stats > h4 {

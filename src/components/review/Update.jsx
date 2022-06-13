@@ -46,7 +46,7 @@ const getRating = (x)=>{
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="review--update-div">
 
         <RatingSelect getRating={getRating} select={(rating) => setRating(rating)} />
         <div>
