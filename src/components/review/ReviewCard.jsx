@@ -2,7 +2,7 @@ import ReviewForm from "./ReviewForm";
 import ReviewList from "./ReviewList";
 import {useState} from 'react'
 
-export default function ReviewCard({user, getReview, getUserInfo, activityReview, createReview, updateReview, deleteReview}) {
+export default function ReviewCard({user, getUserInfo, activityReview, createReview, updateReview, deleteReview}) {
   const [editReview, setEditReview] = useState("")
   const getEdit = (event)=>{
     const reviews = activityReview
@@ -14,11 +14,10 @@ export default function ReviewCard({user, getReview, getUserInfo, activityReview
       <div>
         <div className="review--formContainer">
           <ReviewForm 
-            createReview ={createReview}
-            editReview={editReview}
-            getReview={getReview}
-            user={user}
-            getUserInfo={getUserInfo}
+                      createReview ={createReview}
+                      editReview={editReview}
+                      user={user}
+                      getUserInfo={getUserInfo}
                       />
         </div>
         <div className="review--list">
