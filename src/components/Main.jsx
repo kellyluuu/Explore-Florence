@@ -19,13 +19,11 @@ function Main() {
     const getFilter = (event)=>{
         const newFilter = event.target.value
         setFilter(newFilter)
-        console.log(filter)
     }
 
     const getLinkFilter = (event)=>{
         const newFilter = event.target.name
         setFilter(newFilter)
-        console.log(filter)
     }
 
     /* ---------------------------- GET ACTIVIY DATA ---------------------------- */
@@ -43,11 +41,11 @@ function Main() {
     }
 
     /* ---------------------------- create new review --------------------------- */
-    const createReview = async (review)=>{
+    const createReview = async (review) =>{
         await fetch (URL_rev, {
             method: "POST",
             headers: {
-                "Content-Text": "Application/json",
+                "Content-Type": "Application/json",
             },
             body: JSON.stringify(review),
         })
@@ -76,7 +74,7 @@ function Main() {
         await fetch (URL_rev + id, {
             method: "DELETE",
         })
-        //getReview()
+        getReview()
     }
     
     /* ------------------------------ google login ------------------------------ */
