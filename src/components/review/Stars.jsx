@@ -1,3 +1,0 @@
-
-
-<span className="icon">★</span>;

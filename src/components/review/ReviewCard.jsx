@@ -13,25 +13,25 @@ export default function ReviewCard({user, getReview, getUserInfo, activityReview
   return (
       <div>
         <div className="review--formContainer">
-
           <ReviewForm 
-                      createReview ={createReview}
-                      editReview={editReview}
-                      getReview={getReview}
-                      user={user}
-                      getUserInfo={getUserInfo}
+            createReview ={createReview}
+            editReview={editReview}
+            getReview={getReview}
+            user={user}
+            getUserInfo={getUserInfo}
                       />
         </div>
-
-        <ReviewList 
-        activityReview={activityReview}
-        editReview={editReview}
-        getEdit={getEdit}
-        setEditReview={setEditReview}
-        user={user}
-        deleteReview={deleteReview}
-        updateReview={updateReview}
-        />
+        <div className="review--list">
+          <ReviewList 
+            activityReview={activityReview}
+            editReview={editReview}
+            getEdit={getEdit}
+            setEditReview={setEditReview}
+            user={user}
+            deleteReview={deleteReview}
+            updateReview={updateReview}
+          />
+        </div>
       </div>
     );
 }
