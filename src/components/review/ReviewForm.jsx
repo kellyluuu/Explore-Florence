@@ -30,6 +30,7 @@ const getEmail = (x)=>{
 
 
   const handleChange = (event) => {
+    getEmail(user.email)
     setNewForm((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
@@ -49,12 +50,12 @@ const getEmail = (x)=>{
   const handleSubmit = (event)=>{
     event.preventDefault()
     createReview(newForm)
-    setNewForm({
-      email: user.email,
-      activityId: id,
-      text: "",
-      rating: "",
-    })
+    // setNewForm({
+    //   email: user.email,
+    //   activityId: id,
+    //   text: "",
+    //   rating: "",
+    // })
   }
 
 

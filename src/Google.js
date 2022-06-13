@@ -10,7 +10,7 @@ function Google(props) {
     let userObject = jwt_decode(response.credential)
     setUser(userObject)
     props.getUserInfo((userObject))
-    props.getEmail(user.email)
+    props.getEmail(userObject.email)
     document.getElementById('signInDiv').hidden = true
 
   }
@@ -18,6 +18,7 @@ function Google(props) {
   function handleSignOut(){
     setUser({})
     props.getUserInfo({})
+    props.getEmail({})
     document.getElementById("signInDiv").hidden = false
 
   }
