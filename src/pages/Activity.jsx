@@ -34,7 +34,6 @@ function Activity(props) {
           <h5>REVIEWS</h5>
           <ReviewCard 
           user={props.user}
-          getReview={props.getReview}
           getUserInfo={props.getUserInfo}
           activityReview={activityReview}
           createReview={props.createReview}
