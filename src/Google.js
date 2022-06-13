@@ -1,16 +1,20 @@
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import jwt_decode from "jwt-decode"
 
 
 
 function Google(props) {
+  const [ user, setUser] = useState({})
+
   function handleCallbackResponse(response){
     let userObject = jwt_decode(response.credential)
+    setUser(userObject)
     props.getUserInfo((userObject))
     props.getEmail(userObject.email)
   }
 
   function handleSignOut(){
+    setUser({})
     props.getUserInfo({})
     props.getEmail({})
   }
@@ -36,7 +40,7 @@ function Google(props) {
       }
       { props.user.email  &&
       <div className="google--signedIn" >
-        <img src ={props.user.picture} alt={props.user} className="google--picture" id="google--pic"></img>
+        <img src ={props.user.picture} alt={user.name} className="google--picture" id="google--pic"></img>
         <h3 className="google--name">{props.user.name}</h3>
       </div>
         }
