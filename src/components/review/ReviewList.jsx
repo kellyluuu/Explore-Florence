@@ -17,15 +17,17 @@ export default function ReviewList(props) {
         />
       )}
       {props.activityReview.map((review) => (
-        <div key={review._id}>
-          <span className="icon">★ {review.rating}</span>
-          {props.user.email === review.email && (
-            <button name={review._id} onClick={props.getEdit} className="close">
-              edit
-            </button>
-          )}
-          <div>{review.email}</div>
-          <div className="text-display">{review.text}</div>
+        <div className="review--single-review">
+          <div key={review._id}>
+            <span className="icon">★ {review.rating}</span>
+            {props.user.email === review.email && (
+              <button name={review._id} onClick={props.getEdit} className="close">
+                edit
+              </button>
+            )}
+            <div>{review.email}</div>
+            <div className="review--text">{review.text}</div>
+          </div>
         </div>
       ))}
     </div>
