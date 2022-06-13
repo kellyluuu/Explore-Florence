@@ -8,9 +8,9 @@ function Activity(props) {
   const activities = props.activity
   const activity = activities.find((i)=> i._id ===id)
   const activityReview = filterActivity(props.review, id)
-  function filterActivity (arr,query){
+  function filterActivity(arr, query) {
     return arr.filter(function(el){
-        return el.activityId.toLowerCase().includes(query) 
+        return el.activityId //.toLowerCase().includes(query) 
     })
   }
 
