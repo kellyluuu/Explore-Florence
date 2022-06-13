@@ -10,7 +10,7 @@ export default function ReviewList(props) {
     <div>
       {props.activityReview.map((review) => (
         <div key={review._id} className="review--single-review">
-          {props.editReview !== "" && (
+          {props.editReview._id === review._id && (
             <Update
               setReview={props.setEditReview}
               updateReview={props.updateReview}
