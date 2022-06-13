@@ -37,8 +37,8 @@ const getEmail = (x)=>{
     if (form.text === "") {
       setBtnDisabled(true);
       setMessage(null);
-    } else if (form.text !== "" && form.text.trim().length < 3) {
-      setMessage("Text must be at least 4 characters");
+    } else if (form.text !== "" && form.text.trim().length < 1) {
+      setMessage(null);
       setBtnDisabled(true);
     } else {
       setMessage(null);
@@ -61,37 +61,44 @@ const getEmail = (x)=>{
 
   return (
     <div>
-      { editReview === "" &&
-      <form onSubmit={handleSubmit}>
-        <RatingSelect getRating={getRating} select={(rating) => setRating(rating)} />
-        <div>
-
-          <textarea
-            onChange={handleChange} 
-            type="text"
-            name="text"
-            placeholder="Write a review..."
-            value={form.text}
-            className="review--input-box"
-            rows="6"
-            cols="60"
+      {editReview === "" && (
+        <form onSubmit={handleSubmit} className="review--formContainer">
+          <RatingSelect
+            getRating={getRating}
+            select={(rating) => setRating(rating)}
           />
-          <div className="review--button">
-            <div>
-              <Google getEmail={getEmail} id={id}  getUserInfo={getUserInfo} user={user} />
-            </div>
-            <div>
-            { Object.keys(user).length !==0 &&
-              <button disabled={btnDisabled} type="submit" >
-                Add Review
-              </button>
-            }
+          <div>
+            <textarea
+              onChange={handleChange}
+              type="text"
+              name="text"
+              placeholder="Write a review..."
+              value={form.text}
+              className="review--input-box"
+              rows="6"
+              cols="60"
+            />
+            <div className="review--button">
+              <div>
+                <Google
+                  getEmail={getEmail}
+                  id={id}
+                  getUserInfo={getUserInfo}
+                  user={user}
+                />
+              </div>
+              <div>
+                {Object.keys(user).length !== 0 && (
+                  <button disabled={btnDisabled} type="submit">
+                    Add Review
+                  </button>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-        {message && <div className="message">{message}</div>}
-      </form>
-    }
+          {message && <div className="message">{message}</div>}
+        </form>
+      )}
     </div>
-  )
+  );
 }

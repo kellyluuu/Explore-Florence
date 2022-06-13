@@ -1,6 +1,6 @@
 import ReviewForm from "./ReviewForm";
 import ReviewList from "./ReviewList";
-import {useState} from 'react'
+import {useState} from 'react';
 
 export default function ReviewCard({user, getUserInfo, activityReview, createReview, updateReview, deleteReview}) {
   const [editReview, setEditReview] = useState("")
@@ -12,7 +12,7 @@ export default function ReviewCard({user, getUserInfo, activityReview, createRev
 
   return (
       <div>
-        <div className="review--formContainer">
+        <div>
           <ReviewForm 
                       createReview ={createReview}
                       editReview={editReview}

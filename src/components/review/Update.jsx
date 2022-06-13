@@ -29,8 +29,8 @@ const getRating = (x)=>{
     if (newForm.text === "") {
       setBtnDisabled(true);
       setMessage(null);
-    } else if (newForm.text !== "" && newForm.text.trim().length < 3) {
-      setMessage("Text must be at least 4 characters");
+    } else if (newForm.text !== "" && newForm.text.trim().length < 1) {
+      setMessage(null);
       setBtnDisabled(true);
     } else {
       setMessage(null);
@@ -46,7 +46,7 @@ const getRating = (x)=>{
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="review--update-div">
 
         <RatingSelect getRating={getRating} select={(rating) => setRating(rating)} />
         <div>
@@ -54,7 +54,6 @@ const getRating = (x)=>{
             onChange={handleChange} 
             type="text"
             name="text"
-            placeholder="Write a review..."
             value={newForm.text}
             className="review--input-box"
             rows="6"
@@ -64,8 +63,8 @@ const getRating = (x)=>{
         
             <div>
             
-              <Button type="submit" isDisabled={btnDisabled}>
-                UPDATE REVIEW
+              <Button type="submit" isDisabled={btnDisabled} className="update-button">
+                update
               </Button>
               <button name={editReview._id} onClick={() => deleteReview(editReview._id)} className="close">
               delete</button>
