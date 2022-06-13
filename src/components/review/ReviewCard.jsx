@@ -12,7 +12,7 @@ export default function ReviewCard({user, getUserInfo, activityReview, createRev
 
   return (
       <div>
-        <div className="review--formContainer">
+        <div>
           <ReviewForm 
                       createReview ={createReview}
                       editReview={editReview}
