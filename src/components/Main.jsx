@@ -44,7 +44,7 @@ function Main() {
 
     /* ---------------------------- create new review --------------------------- */
     const createReview = async (review)=>{
-        await fetch (URL_rev+"new", {
+        await fetch (URL_rev, {
             method: "POST",
             headers: {
                 "Content-Text": "Application/json",
