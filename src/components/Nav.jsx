@@ -13,7 +13,6 @@ export default function Nav(props) {
 
   return (
     <div className="topNav">
-      <div id="topNav--home">
         <Link to="/">
           <img
             className="logo"
@@ -21,7 +20,6 @@ export default function Nav(props) {
             alt="back to home page"
           />
         </Link>
-      </div>
       <div id="topNav--links">
         <Link to="/activity" onClick={props.getFilter} name="eat" >EAT</Link>
         <Link to="/activity" onClick={props.getFilter} name="drink">DRINK</Link>

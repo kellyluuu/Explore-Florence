@@ -37,7 +37,6 @@ button:hover {
 
 h5 {
     margin-top: 0;
-    // margin-bottom: 0;
 }
 
 .loading {
@@ -112,7 +111,6 @@ h5 {
     grid-template-columns: 50% 50%;
     max-width: 1200px;
     position: relative;
-    // max-height: 500px;
 }
 
 .splash--container > #splash--image {
@@ -134,14 +132,15 @@ h5 {
 .splash--sectionTitle {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    font-size: 1.45vw;
+    font-size: max(1.45vw, 10px);
 }
 
 .splash--sectionDesc {
     font-family: 'Tiro Devanagari Marathi', serif;
-    font-size: 1.65vw,;
+    font-size: max(1.65vw, 14px);
     line-height: 1.75;
 }
+
 
 /*------------ INDEX PAGE -----------*/
 
@@ -202,12 +201,13 @@ h5 {
     -ms-transform: translate(-50%, -50%);
 }
 
+
 /*------------ FILTER -----------*/
 
 .index--filter {
     display: flex;
     justify-content: flex-end;
-    // margin-bottom: 20px;
+    margin-left: 30px;
 }
 
 .index--selection {
@@ -331,11 +331,6 @@ h5 {
     color: $yellowButton;
 }
 
-// .rating label input:focus:not(:checked) ~ .icon:last-child {
-    // color: #cec5aa;
-    // text-shadow: 0 0 5 $orangeAccent;
-// }
-
 /*------------ USER REVIEWS -----------*/
 
 .review--formContainer {
@@ -394,7 +389,7 @@ h5 {
 }
 
 .feedback-stats {
-    font-size: max(1vw, 10px);
+    font-size: max(1vw, 12px);
     display: flex;
 }
 
@@ -441,5 +436,89 @@ h5 {
 
 .google--name {
     font-size: x-small;
+}
+
+
+/* ***************************
+** Mobile Media Query
+*************************** */
+
+@media screen and (min-width: 350px) and (max-width: 625px){
+
+.App {
+    width: 100%;
+}
+
+.splash--container {
+    display: block;
+}
+
+.splash--container > #splash--image {
+    margin: 0px;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.splash--container > #splash--text {
+    margin: 275px 10px 10px 10px;
+    padding: 20px;
+    color: $blueText;
+}
+
+.splash--sectionTitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: max(1.75vh, 18px);
+}
+
+.splash--sectionDesc {
+    font-family: 'Tiro Devanagari Marathi', serif;
+    font-size: max(1.65vh, 18px);
+    line-height: 2;
+}
+
+button {
+    padding: 6px 12px;
+    font-size: 18px;
+}
+
+.index {
+    margin: 20px;
+}
+
+.activity--grid {
+    display: block;
+    margin-top: 0;
+}
+
+.activity--image > img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.activity--details h3 {
+    font-family: 'Tiro Devanagari Marathi', serif;
+    font-weight: 300;
+    font-size: max(3vh, 19px);
+    margin-bottom: 3px;    
+}
+
+.activity--details p {
+    font-size: max(1.25vh, 16px);
+    line-height: 1.75;
+}
+
+.activity--details {
+    font-size: max(2vh, 19px)
+}
+
+.feedback-stats {
+    font-size: max(2vw, 14px);
+    display: flex;
+}
+
 }
 

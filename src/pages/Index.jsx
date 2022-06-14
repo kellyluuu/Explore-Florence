@@ -14,7 +14,7 @@ export default function Index(props) {
         }
         
         return (
-          <>
+          <div className="index">
             <div className="index--header">
               <h2 className="index--title">
                 New experiences await in Florence
@@ -53,7 +53,7 @@ export default function Index(props) {
                 </div>
               ))}
             </div>
-          </>
+          </div>
         );}
 
   const loading = ()=>{
