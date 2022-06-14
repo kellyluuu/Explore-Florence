@@ -11,16 +11,12 @@ function Google(props) {
     setUser(userObject)
     props.getUserInfo((userObject))
     props.getEmail(userObject.email)
-    document.getElementById('signInDiv').hidden = true
-
   }
 
   function handleSignOut(){
     setUser({})
     props.getUserInfo({})
     props.getEmail({})
-    document.getElementById("signInDiv").hidden = false
-
   }
       useEffect(()=>{
       /* global google */
@@ -37,14 +33,14 @@ function Google(props) {
 
   return (
     <div className='google'>
-    <div id="signInDiv"></div>
-      { Object.keys(user).length !==0 &&
+    <div id="signInDiv" style={{display: `${props.user.email?"none" : "inline"}`}} ></div>
+      { props.user.email &&
       <button onClick={(e)=>handleSignOut(e)}>
         Sign Out</button>
       }
-      { Object.keys(user).length !==0 &&
+      { props.user.email  &&
       <div className="google--signedIn" >
-        <img src ={props.user.picture} alt={props.user} className="google--picture" id="google--pic"></img>
+        <img src ={props.user.picture} alt={user.name} className="google--picture" id="google--pic"></img>
         <h3 className="google--name">{props.user.name}</h3>
       </div>
         }

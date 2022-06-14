@@ -92,9 +92,6 @@ function Main() {
     useEffect(()=> {getReview()},[])
 
 
-  
-
-
   return (
     <main>
         <Nav getFilter={getLinkFilter}/>
