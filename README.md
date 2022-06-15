@@ -5,8 +5,8 @@
 |-------|--------|
 | Project Name | Explore Florence|
 | Description | Find things to do and where to eat in Florence, Italy. Sign in with your Google account to create, update, and delete reviews. |
-| Developers | Kelly, Fernando, Cheryl |
-| Live Website | https://zippy-kulfi-fedd39.netlify.app/ |
+| Developers | [Kelly](https://github.com/kellyluuu), [Fernando](https://github.com/NandoLofi), [Cheryl](https://github.com/chess2022) |
+| Live Website | https://exploreflorence.netlify.app/ |
 | Project Planning & Management | https://trello.com/b/8DqMFtSz/kfcproject3 |
 | Repo Frontend | https://github.com/kellyluuu/Project_3_Frontend |
 | Repo Backend | https://github.com/NandoLofi/Unit-3-Project-Backend |
