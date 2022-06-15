@@ -4,27 +4,34 @@
 | Field | Detail |
 |-------|--------|
 | Project Name | Explore Florence|
-| Description | Find activity in Florence. Register account to create, update, and delete reviews.   |
+| Description | Find things to do and where to eat in Florence, Italy. Sign in with your Google account to create, update, and delete reviews. |
 | Developers | Kelly, Fernando, Cheryl |
-| Live Website | {website of deployed application} |
+| Live Website | https://zippy-kulfi-fedd39.netlify.app/ |
+| Project Planning & Management | https://trello.com/b/8DqMFtSz/kfcproject3 |
 | Repo Frontend | https://github.com/kellyluuu/Project_3_Frontend |
-| Repo Backend | {Link to git repository} |
+| Repo Backend | https://github.com/NandoLofi/Unit-3-Project-Backend |
 
 
 ## User Stories
 
 List of stories users should experience when using your application.
 
-- Users should be able to see the site on desktop and mobile
-- Users can create an account
-- Users can sign in to their account
-- Users can create a new review
-- Users can see all activies and the reviews other created
-- Users can update their own review
-- User can delete their own review
+- As a user, I should be able to see the site on desktop and mobile
+- As a user, I would like to see all activies and their reviews
+- As a user, I would like to filter activities by the type I'm looking for
+- As a user, I would like to log in with google
+- As a user, I would like to create a new review
+- As a user, I would like to update my own review(s)
+- As a user, I would like to delete my own review(s)
 
-## List of libraries used
-- react
+## List of technologies used
+
+- Mongoose/MongoDB
+- Express
+- React
+- Node
+- Google OAuth login
+- Javascript
 - sass
 - react-router-dom
 
@@ -52,14 +59,15 @@ Router-->edit
 
 ## User Interface Mockups
 
+#### Splash
+![Splash](./doc/splash.png)
+
 #### Index 
 ![Index](./doc/index.png)
 
-#### Activity 
+#### Activity/Login 
 ![Activity](./doc/activity.png)
 
-#### Login 
-![Login](./doc/splash.png)
 
 
 
