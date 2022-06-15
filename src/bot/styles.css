@@ -90,9 +90,9 @@
     background-color: #AD4B33;
     border: none;
     position: fixed;
-    bottom: 25px;
+    bottom: 50px;
     z-index: 9999;
-    left: 40px;
+    left: 75px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -107,7 +107,7 @@
     justify-content: center;
     position: fixed;
     left: 40px;
-    bottom: 55px;
+    bottom: 75px;
     z-index: 9999;
     color: #B5973F;
     box-shadow: 5px 5px 13px rgba(91, 81, 81, 0.4);

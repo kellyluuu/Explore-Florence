@@ -8,11 +8,7 @@ class MessageParser {
   parse(message) {
     const lowerCaseMessage = message.toLowerCase();
 
-    if (lowerCaseMessage.includes("hello") || 
-    lowerCaseMessage.includes("hi")) {
-      this.actionProvider.greet();
-    }
-    else if (lowerCaseMessage.includes("weather")||
+   if (lowerCaseMessage.includes("weather")||
     lowerCaseMessage.includes("forecast") ||
     lowerCaseMessage.includes("sunny") ||
     lowerCaseMessage.includes("rain")) {
@@ -36,6 +32,10 @@ class MessageParser {
     lowerCaseMessage.includes("drink")) {
       this.actionProvider.handleFood();
     } 
+    if (lowerCaseMessage.includes("hello") || 
+    lowerCaseMessage.includes("hi")) {
+      this.actionProvider.greet();
+    }
 
     else{
       this.actionProvider.noAnswer()
