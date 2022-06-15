@@ -45,15 +45,21 @@ List of stories users should experience when using your application.
 
 ```mermaid
 
-flowchart LR
-App-->Header
 App-->Main
-App-->Footer
+Main-->Nav
 Main-->Router
-Router--> activity
-Router-->Login
+Router-->Splash
 Router-->index
-Router-->edit
+Router--> activity
+activity-->ReviewStats
+activity-->ReviewCard
+ReviewCard-->ReviewForm
+ReviewCard-->ReviewList
+ReviewForm-->Google
+ReviewForm-->RatingSelect
+ReviewList-->Update
+Update-->Button
+Update-->RatingSelect
 
 ```
 
