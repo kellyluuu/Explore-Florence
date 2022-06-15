@@ -96,7 +96,7 @@ function Main() {
     <main>
         <Nav getFilter={getLinkFilter}/>
         <Routes>
-            <Route path ="/" element = {<Splash></Splash>}/>
+            <Route path ="/" element = {<Splash user={userInfo} getFilter={getLinkFilter}></Splash>}/>
 
             <Route path = "/activity" element = {<Index
             filter={filter}

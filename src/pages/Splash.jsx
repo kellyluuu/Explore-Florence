@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Bot from '../bot/Bot';
 
-export default function Splash() {
+export default function Splash(props) {
   return (
     <div className="splash--container">
         <img
@@ -22,6 +23,7 @@ export default function Splash() {
           <button>EXPLORE</button>
         </Link>
       </div>
+      <Bot user={props.user} getFilter={props.getFilter}/>
     </div>
   );
 }

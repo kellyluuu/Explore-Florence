@@ -48,7 +48,6 @@ List of stories users should experience when using your application.
 
 ```mermaid
 flowchart LR
-
 App-->Main
 Main-->Nav
 Main-->Router
