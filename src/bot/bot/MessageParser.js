@@ -12,9 +12,14 @@ class MessageParser {
     lowerCaseMessage.includes("hi")) {
       this.actionProvider.greet();
     }
+    else if (lowerCaseMessage.includes("weather")||
+    lowerCaseMessage.includes("forecast") ||
+    lowerCaseMessage.includes("sunny") ||
+    lowerCaseMessage.includes("rain")) {
+      this.actionProvider.handleForecast();
+    } 
     else if (lowerCaseMessage.includes("todo")||
     lowerCaseMessage.includes("activit") ||
-    lowerCaseMessage.includes("eat") ||
     lowerCaseMessage.includes("shop") ||
     lowerCaseMessage.includes("relax") ||
     lowerCaseMessage.includes("explore")) {
@@ -27,15 +32,11 @@ class MessageParser {
     } 
     else if (lowerCaseMessage.includes("food")||
     lowerCaseMessage.includes("hungry") ||
+    lowerCaseMessage.includes("eat") ||
     lowerCaseMessage.includes("drink")) {
       this.actionProvider.handleFood();
     } 
-    else if (lowerCaseMessage.includes("weather")||
-    lowerCaseMessage.includes("forecast") ||
-    lowerCaseMessage.includes("sunny") ||
-    lowerCaseMessage.includes("rain")) {
-      this.actionProvider.handleForecast();
-    } 
+
     else{
       this.actionProvider.noAnswer()
     }
