@@ -17,6 +17,7 @@ class MessageParser {
     else if (lowerCaseMessage.includes("todo")||
     lowerCaseMessage.includes("activit") ||
     lowerCaseMessage.includes("shop") ||
+    lowerCaseMessage.includes("spa") ||
     lowerCaseMessage.includes("relax") ||
     lowerCaseMessage.includes("explore")) {
       this.actionProvider.handleThingsTodo();
@@ -32,7 +33,11 @@ class MessageParser {
     lowerCaseMessage.includes("drink")) {
       this.actionProvider.handleFood();
     } 
-    if (lowerCaseMessage.includes("hello") || 
+    else if (lowerCaseMessage.includes("bye")||
+    lowerCaseMessage.includes("see you later")) {
+      this.actionProvider.handleBye();
+    } 
+    else if (lowerCaseMessage.includes("hello") || 
     lowerCaseMessage.includes("hi")) {
       this.actionProvider.greet();
     }

@@ -27,6 +27,17 @@ class ActionProvider {
     this.updateChatbotState(message);
   };
 
+  handleBye = () => {
+    const message = this.createChatBotMessage(
+      "Thank you for reaching out to us today. Have a great day, bye!",
+      {
+        delay: 400,
+      }
+    );
+
+    this.updateChatbotState(message);
+  };
+
   handleForecast = () => {
     const message = this.createChatBotMessage(
       "Here's a 5 day forecast in Florence.",
@@ -58,7 +69,7 @@ class ActionProvider {
 
   noAnswer() {
     const greetingMessage = this.createChatBotMessage(
-      "My creator Cheryl, Fernando, and Kelly limited my knowledge on this subject.",
+      "Oops, you got me! Unfortunately, I’m not sure how to answer this. My creator, Cheryl, Fernando, and Kelly, limited my knowledge on this subject.",
       {
       delay: 400,
       widget: "google"
