@@ -34,6 +34,8 @@ List of stories users should experience when using your application.
 - Javascript
 - sass
 - react-router-dom
+- Google-login
+- jwt-decode
 
 ## ERD
 ![ERD](./doc/image.png)
