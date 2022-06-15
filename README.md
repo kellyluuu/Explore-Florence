@@ -43,7 +43,10 @@ List of stories users should experience when using your application.
 ## Component Architecture
 
 
+
+
 ```mermaid
+flowchart LR
 
 App-->Main
 Main-->Nav
@@ -62,6 +65,7 @@ Update-->Button
 Update-->RatingSelect
 
 ```
+
 
 ## User Interface Mockups
 
