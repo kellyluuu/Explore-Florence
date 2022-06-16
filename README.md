@@ -35,6 +35,9 @@ List of stories users should experience when using your application.
 - sass
 - react-router-dom
 - jwt-decode
+- react-chatbot-kit
+- react-spinners
+
 
 ## ERD
 ![ERD](./doc/image.png)
@@ -52,6 +55,7 @@ App-->Main
 Main-->Nav
 Main-->Router
 Router-->Splash
+Splash-->Bot
 Router-->index
 Router--> activity
 activity-->ReviewStats
